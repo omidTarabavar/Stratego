@@ -1,19 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="" />
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="this is also test">
+      <change afterPath="$PROJECT_DIR$/Stratego/Capitan.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Colonel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/General.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Lieutenant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Major.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Marshal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Miner.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Player.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Sergeant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Spy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Temp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2AzTD9sZ6Ubuy9xK0Yt4hrAL9bM" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -32,6 +66,29 @@
       <option name="presentableId" value="Default" />
       <updated>1656011315221</updated>
     </task>
+    <task id="LOCAL-00001" summary="this is also test">
+      <created>1656013569201</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1656013569201</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="this is also test" />
+    <option name="LAST_COMMIT_MESSAGE" value="this is also test" />
   </component>
 </project>
