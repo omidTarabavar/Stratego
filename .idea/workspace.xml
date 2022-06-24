@@ -2,20 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="this is also test">
+      <change afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Capitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Capitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Colonel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Colonel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/General.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/General.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Lieutenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Lieutenant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Major.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Major.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Marshal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Miner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Sergeant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Sergeant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Spy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Spy.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

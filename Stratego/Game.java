@@ -18,7 +18,9 @@ public class Game {
         System.out.println("7-Major");
         System.out.println("8-Colonel");
         System.out.println("9-General");
-        System.out.println("10-Marshal\n");
+        System.out.println("10-Marshal");
+        System.out.println("11-Bomb");
+        System.out.println("12-Flag\n");
         System.out.print("-> ");
         int chosenPiece = keyboard.nextInt();
         System.out.print("Choose a place(e.g -> 2,3): ");
@@ -93,6 +95,20 @@ public class Game {
                 case 10: {
                     piece = new Marshal(row, col);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
+                    if(ok)
+                        board[row][col] = piece;
+                    break;
+                }
+                case 11:{
+                    piece = new Bomb(row,col);
+                    ok = piece.addToPieceList(player.pieces,player.pieceCounter);
+                    if(ok)
+                        board[row][col] = piece;
+                    break;
+                }
+                case 12:{
+                    piece = new Flag(row,col);
+                    ok = piece.addToPieceList(player.pieces,player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
