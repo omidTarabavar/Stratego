@@ -9,12 +9,16 @@ public class Colonel extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[7] < 2){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[7] < 2){
+            piecesList.add(this);
+            pieceCounter[7] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have 2 colonels");
+            return false;
         }
     }
 }

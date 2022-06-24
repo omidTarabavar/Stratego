@@ -9,12 +9,16 @@ public class Spy extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[9] < 1){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[9] < 1){
+            piecesList.add(this);
+            pieceCounter[9] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have a spy");
+            return false;
         }
     }
 }

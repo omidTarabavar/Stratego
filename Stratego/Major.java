@@ -9,12 +9,16 @@ public class Major extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[6] <3){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[6] <3){
+            piecesList.add(this);
+            pieceCounter[6] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have 3 majors");
+            return false;
         }
     }
 }

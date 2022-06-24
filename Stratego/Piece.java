@@ -15,6 +15,6 @@ public abstract class Piece {
     public void attack(Piece attacker,Piece defender){
 
     }
-    public abstract void addToPieceList(Piece piece,ArrayList<Piece> piecesList,int[] peaceCounter);
+    public abstract boolean addToPieceList(ArrayList<Piece> piecesList,int[] peaceCounter);
 
 }

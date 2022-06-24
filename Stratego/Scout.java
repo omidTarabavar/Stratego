@@ -9,12 +9,16 @@ public class Scout extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[1] < 8){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[1] < 8){
+            piecesList.add(this);
+            pieceCounter[1] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have 8 scouts");
+            return false;
         }
     }
 }

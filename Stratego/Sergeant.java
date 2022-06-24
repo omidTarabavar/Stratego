@@ -9,12 +9,16 @@ public class Sergeant extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[3] < 4){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[3] < 4){
+            piecesList.add(this);
+            pieceCounter[3] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have 4 sergeants");
+            return false;
         }
     }
 }

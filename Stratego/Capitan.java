@@ -9,12 +9,16 @@ public class Capitan extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[5] < 4){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[5] < 4){
+            piecesList.add(this);
+            pieceCounter[5] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have 4 capitans");
+            return false;
         }
     }
 }

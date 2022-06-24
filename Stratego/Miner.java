@@ -9,12 +9,16 @@ public class Miner extends Piece{
     }
 
     @Override
-    public void addToPieceList(Piece piece, ArrayList<Piece> piecesList, int[] peaceCounter) {
-        if(peaceCounter[2] < 5){
-            piecesList.add(piece);
+    public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
+        if(pieceCounter[2] < 5){
+            piecesList.add(this);
+            pieceCounter[2] += 1;
+            System.out.println("Done");
+            return true;
         }
         else {
             System.out.println("You already have 5 miners");
+            return false;
         }
     }
 }
