@@ -121,7 +121,7 @@ public class Game {
 
     public void movePiece(Player player){
         int[] position = new int[2];
-        int scoutTiles=0;
+        int tiles=1;
         Scanner keyboard =new Scanner(System.in);
         System.out.print("Enter your move(e.g > Major,2,3-u): ");
         String move = keyboard.next();
@@ -133,9 +133,9 @@ public class Game {
                 System.out.println("You cant move " + pieceName);
             } else if (pieceName.equals("Scout")) {
                 System.out.print("Number of tiles: ");
-                scoutTiles = keyboard.nextInt();
+                tiles = keyboard.nextInt();
             }
-            piece.move(scoutTiles,move.charAt(move.length()-1));
+            piece.move(tiles,move.charAt(move.length()-1));
         }else {
             System.out.println("There is no piece at this position");
         }
