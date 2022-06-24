@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="this is also test">
-      <change afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added Flag and Bomb">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Capitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Capitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Colonel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Colonel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/General.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/General.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Lieutenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Lieutenant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Major.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Major.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Marshal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Miner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Sergeant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Sergeant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Spy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Spy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Temp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +59,26 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RunManager">
+    <configuration name="Temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Stratego.Temp" />
+      <module name="Stratego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Stratego.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Temp" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -64,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656013569201</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added Flag and Bomb">
+      <created>1656092097903</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1656092097903</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -80,6 +118,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="this is also test" />
-    <option name="LAST_COMMIT_MESSAGE" value="this is also test" />
+    <MESSAGE value="added Flag and Bomb" />
+    <option name="LAST_COMMIT_MESSAGE" value="added Flag and Bomb" />
   </component>
 </project>

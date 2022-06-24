@@ -21,4 +21,8 @@ public class Capitan extends Piece{
             return false;
         }
     }
+    @Override
+    public String toString() {
+        return "Capitan";
+    }
 }

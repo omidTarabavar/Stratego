@@ -4,8 +4,8 @@ import java.util.Scanner;
 
 public class Game {
     public static Piece[][] board = new Piece[10][10];
-    public Piece addAPiece(Player player){
-        Piece piece = null;
+    public void addAPiece(Player player){
+        Piece piece;
         boolean ok;
         Scanner keyboard = new Scanner(System.in);
         System.out.println("Choose your piece:");
@@ -25,8 +25,8 @@ public class Game {
         int chosenPiece = keyboard.nextInt();
         System.out.print("Choose a place(e.g -> 2,3): ");
         String chosenPlace = keyboard.next();
-        int row = chosenPlace.charAt(0);
-        int col = chosenPlace.charAt(2);
+        int row = chosenPlace.charAt(0)-48;
+        int col = chosenPlace.charAt(2)-48;
         if(board[row][col] == null) {
             switch (chosenPiece) {
                 case 1: {
@@ -117,6 +117,48 @@ public class Game {
         }else {
             System.out.println("This position is already taken");
         }
-        return piece;
     }
+
+    public void movePiece(Player player){
+        int[] position = new int[2];
+        int scoutTiles=0;
+        Scanner keyboard =new Scanner(System.in);
+        System.out.print("Enter your move(e.g > Major,2,3-u): ");
+        String move = keyboard.next();
+        findPosition(move,position);
+        String pieceName = findPieceName(move);
+        Piece piece= Piece.findPieceInBoard(position[0],position[1]);
+        if(piece != null) {
+            if (pieceName.equals("Bomb") || pieceName.equals("Flag")) {
+                System.out.println("You cant move " + pieceName);
+            } else if (pieceName.equals("Scout")) {
+                System.out.print("Number of tiles: ");
+                scoutTiles = keyboard.nextInt();
+            }
+            piece.move(scoutTiles,move.charAt(move.length()-1));
+        }else {
+            System.out.println("There is no piece at this position");
+        }
+    }
+    public String findPieceName(String move){
+        int endingIndex = 0;
+        for(int i = 0 ; i < move.length();i++){
+            if(move.charAt(i) == ','){
+                endingIndex = (i-1);
+                break;
+            }
+        }
+        return move.substring(0,endingIndex+1);
+    }
+
+    public void findPosition(String move,int[] position){
+        for(int i = 0 ; i < move.length();i++){
+            if(move.charAt(i) == ','){
+                position[0] = move.charAt(i+1)-48;
+                position[1] = move.charAt(i+3)-48;
+                break;
+            }
+        }
+    }
+
 }

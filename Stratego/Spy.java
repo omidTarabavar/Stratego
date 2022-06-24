@@ -21,4 +21,8 @@ public class Spy extends Piece{
             return false;
         }
     }
+    @Override
+    public String toString() {
+        return "Spy";
+    }
 }

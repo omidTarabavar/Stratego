@@ -21,4 +21,8 @@ public class Miner extends Piece{
             return false;
         }
     }
+    @Override
+    public String toString() {
+        return "Miner";
+    }
 }

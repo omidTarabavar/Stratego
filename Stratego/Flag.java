@@ -21,4 +21,9 @@ public class Flag extends Piece{
             return false;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Flag";
+    }
 }

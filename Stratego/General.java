@@ -21,4 +21,8 @@ public class General extends Piece{
             return false;
         }
     }
+    @Override
+    public String toString() {
+        return "General";
+    }
 }
