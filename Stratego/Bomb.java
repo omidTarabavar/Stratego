@@ -25,4 +25,9 @@ public class Bomb extends Piece{
     public String toString() {
         return "Bomb";
     }
+
+    @Override
+    public void move(int tiles, char direction,Player player1,Player player2) {
+        System.out.println("You cant move the bombs");
+    }
 }

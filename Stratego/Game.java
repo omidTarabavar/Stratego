@@ -119,7 +119,7 @@ public class Game {
         }
     }
 
-    public void movePiece(Player player){
+    public void movePiece(Player player1,Player player2){
         int[] position = new int[2];
         int tiles=1;
         Scanner keyboard =new Scanner(System.in);
@@ -129,13 +129,11 @@ public class Game {
         String pieceName = findPieceName(move);
         Piece piece= Piece.findPieceInBoard(position[0],position[1]);
         if(piece != null) {
-            if (pieceName.equals("Bomb") || pieceName.equals("Flag")) {
-                System.out.println("You cant move " + pieceName);
-            } else if (pieceName.equals("Scout")) {
+            if (pieceName.equals("Scout")) {
                 System.out.print("Number of tiles: ");
                 tiles = keyboard.nextInt();
             }
-            piece.move(tiles,move.charAt(move.length()-1));
+            piece.move(tiles,move.charAt(move.length()-1),player1,player2);
         }else {
             System.out.println("There is no piece at this position");
         }

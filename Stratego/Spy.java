@@ -25,4 +25,21 @@ public class Spy extends Piece{
     public String toString() {
         return "Spy";
     }
+
+    @Override
+    public void attack(int[] nextPos,Player player1,Player player2) {
+        Piece piece2 = findPieceInBoard(nextPos[0],nextPos[1]);
+        if(piece2.rank == 10){
+            Game.board[nextPos[0]][nextPos[1]] = this;
+            player2.pieces.remove(piece2);
+            player2.pieceCounter[piece2.rank-1] -= 1;
+        }else if(piece2.rank == 0){
+            Game.board[nextPos[0]][nextPos[1]] = this;
+            player2.pieces.remove(piece2);
+            player2.pieceCounter[11] -= 1;
+        }
+        else {
+            normalAttack(this,piece2,player1,player2,nextPos);
+        }
+    }
 }

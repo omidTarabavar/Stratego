@@ -9,23 +9,23 @@ public abstract class Piece {
         position[0] = row;
         position[1] = col;
     }
-    public void move(int tiles,char direction){
+    public void move(int tiles,char direction,Player player1,Player player2){
         int[] nextPos = findNextPosition(this.position,direction,tiles);
         if(Game.board[nextPos[0]][nextPos[1]] == null){
             this.position = nextPos;
         }else {
-            attack(nextPos);
+            attack(nextPos,player1,player2);
         }
     }
-    public void attack(int[] nextPos){
+    public void attack(int[] nextPos,Player player1,Player player2){
         Piece piece2 = findPieceInBoard(nextPos[0],nextPos[1]);
-        if(this.rank > piece2.rank){
+        if(piece2.rank == 0){
             Game.board[nextPos[0]][nextPos[1]] = this;
-        }else if(this.rank == piece2.rank){
-            Game.board[nextPos[0]][nextPos[1]] = null;
-            Game.board[this.position[0]][this.position[1]] = null;
-        }else {
-            Game.board[this.position[0]][this.position[1]] = null;
+            player2.pieces.remove(piece2);
+            player2.pieceCounter[11] -= 1;
+        }
+        else {
+            normalAttack(this,piece2,player1,player2,nextPos);
         }
     }
     public abstract boolean addToPieceList(ArrayList<Piece> piecesList,int[] pieceCounter);
@@ -45,6 +45,18 @@ public abstract class Piece {
             nextPos[1] -= tiles;
         }
         return nextPos;
+    }
+    public void normalAttack(Piece piece1,Piece piece2,Player player1,Player player2,int[] nextPos){
+        if(this.rank > piece2.rank){
+            Game.board[nextPos[0]][nextPos[1]] = this;
+            player2.pieces.remove(piece2);
+            player2.pieceCounter[piece2.rank-1] -= 1;
+        }else if(this.rank == piece2.rank){
+            Game.board[nextPos[0]][nextPos[1]] = null;
+            Game.board[this.position[0]][this.position[1]] = null;
+        }else {
+            Game.board[this.position[0]][this.position[1]] = null;
+        }
     }
 
 
