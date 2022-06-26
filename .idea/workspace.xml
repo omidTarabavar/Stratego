@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="updated attack ( especially for Spy Miner ) -- need to check the stratego.txt next time&#10;&#10;added normal attack function and other changes...">
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
     </list>
@@ -133,7 +132,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656118048857</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)">
+      <created>1656219594198</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1656219594199</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -153,6 +159,7 @@
     <MESSAGE value="added moving ( incomplete ) and some functions" />
     <MESSAGE value="updated move function and added attack function ( incomplete (maybe) )&#10;bugs should be fixed&#10;&#10;document need to be read again" />
     <MESSAGE value="updated attack ( especially for Spy Miner ) -- need to check the stratego.txt next time&#10;&#10;added normal attack function and other changes..." />
-    <option name="LAST_COMMIT_MESSAGE" value="updated attack ( especially for Spy Miner ) -- need to check the stratego.txt next time&#10;&#10;added normal attack function and other changes..." />
+    <MESSAGE value="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)" />
+    <option name="LAST_COMMIT_MESSAGE" value="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)" />
   </component>
 </project>

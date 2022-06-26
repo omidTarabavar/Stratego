@@ -27,18 +27,15 @@ public class Scout extends Piece{
     }
 
     @Override
-    public boolean move(int tiles, char direction,Player player1,Player player2) {
+    public void move(int tiles, char direction,Player player1,Player player2) {
         int[] nextPos = findNextPosition(this.position,direction,tiles);
         if(Game.board[nextPos[0]][nextPos[1]] == null){
             this.position = nextPos;
-            return true;
         }else if(tiles == 1){
             attack(nextPos,player1,player2);
-            return true; 
         }
         else {
             System.out.println("Your scout cant move and attack at the same time!");
-            return false;
         }
     }
 

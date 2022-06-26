@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     public static Piece[][] board = new Piece[10][10];
-    public void addAPiece(Player player){
+    public boolean addAPiece(Player player){
         Piece piece;
         boolean ok;
         Scanner keyboard = new Scanner(System.in);
@@ -29,6 +29,7 @@ public class Game {
         int col = chosenPlace.charAt(2)-48;
         if(row == 4 || row == 5){
             System.out.println("You cannot place your piece here!");
+            return false;
         }
         else if(board[row][col] == null) {
             switch (chosenPiece) {
@@ -116,10 +117,16 @@ public class Game {
                         board[row][col] = piece;
                     break;
                 }
+                default:{
+                    System.out.println("Enter a valid number!");
+                    return false;
+                }
             }
         }else {
             System.out.println("This position is already taken");
+            return false;
         }
+        return true;
     }
 
     public void movePiece(Player player1,Player player2){
