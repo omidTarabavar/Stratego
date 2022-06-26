@@ -14,11 +14,13 @@ public abstract class Piece {
         if((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1]==7)){
             System.out.println("You cant move pieces into Sea");
         }
-        if(Game.board[nextPos[0]][nextPos[1]] == null){
-            this.position = nextPos;
-            Game.board[position[0]][position[1]] = this;
-        }else {
-            attack(nextPos,player1,player2);
+        if(isValidMove(nextPos)) {
+            if (Game.board[nextPos[0]][nextPos[1]] == null) {
+                this.position = nextPos;
+                Game.board[position[0]][position[1]] = this;
+            } else {
+                attack(nextPos, player1, player2);
+            }
         }
     }
     public void attack(int[] nextPos,Player player1,Player player2){
@@ -61,6 +63,14 @@ public abstract class Piece {
         }else {
             Game.board[this.position[0]][this.position[1]] = null;
         }
+    }
+    public boolean isValidMove(int[] nextPos){
+        int rowDif = nextPos[0] - position[0];
+        int colDif = nextPos[1] - position[1];
+        if(rowDif == 0 || colDif == 0){
+            return true;
+        }
+        return false;
     }
 
 

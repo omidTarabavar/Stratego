@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)">
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="mahdodiat hayii jadid baraye move va place piece in border emal shode. (updated ver)">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -139,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656219594199</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="mahdodiat hayii jadid baraye move va place piece in border emal shode. (updated ver)">
+      <created>1656222628596</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1656222628596</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -160,6 +164,8 @@
     <MESSAGE value="updated move function and added attack function ( incomplete (maybe) )&#10;bugs should be fixed&#10;&#10;document need to be read again" />
     <MESSAGE value="updated attack ( especially for Spy Miner ) -- need to check the stratego.txt next time&#10;&#10;added normal attack function and other changes..." />
     <MESSAGE value="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)" />
-    <option name="LAST_COMMIT_MESSAGE" value="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)" />
+    <MESSAGE value="mahdodiat hayii jadid baraye move va place piece in border emal shode." />
+    <MESSAGE value="mahdodiat hayii jadid baraye move va place piece in border emal shode. (updated ver)" />
+    <option name="LAST_COMMIT_MESSAGE" value="mahdodiat hayii jadid baraye move va place piece in border emal shode. (updated ver)" />
   </component>
 </project>
