@@ -27,7 +27,8 @@ public class Bomb extends Piece{
     }
 
     @Override
-    public void move(int tiles, char direction,Player player1,Player player2) {
+    public boolean move(int tiles, char direction,Player player1,Player player2) {
         System.out.println("You cant move the bombs");
+        return false;
     }
 }

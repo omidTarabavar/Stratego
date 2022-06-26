@@ -27,7 +27,10 @@ public class Game {
         String chosenPlace = keyboard.next();
         int row = chosenPlace.charAt(0)-48;
         int col = chosenPlace.charAt(2)-48;
-        if(board[row][col] == null) {
+        if(row == 4 || row == 5){
+            System.out.println("You cannot place your piece here!");
+        }
+        else if(board[row][col] == null) {
             switch (chosenPiece) {
                 case 1: {
                     piece = new Spy(row, col);

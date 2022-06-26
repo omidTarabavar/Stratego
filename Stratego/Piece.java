@@ -9,13 +9,18 @@ public abstract class Piece {
         position[0] = row;
         position[1] = col;
     }
-    public void move(int tiles,char direction,Player player1,Player player2){
+    public boolean move(int tiles,char direction,Player player1,Player player2){
         int[] nextPos = findNextPosition(this.position,direction,tiles);
+        if((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1]==7)){
+            System.out.println("You cant move pieces into Sea");
+            return false;
+        }
         if(Game.board[nextPos[0]][nextPos[1]] == null){
             this.position = nextPos;
         }else {
             attack(nextPos,player1,player2);
         }
+        return true;
     }
     public void attack(int[] nextPos,Player player1,Player player2){
         Piece piece2 = findPieceInBoard(nextPos[0],nextPos[1]);
