@@ -4,6 +4,7 @@ import java.util.Scanner;
 
 public class Game {
     public static Piece[][] board = new Piece[10][10];
+    public static Player[] players = new Player[2];
     public boolean addAPiece(Player player){
         Piece piece;
         boolean ok;

@@ -4,10 +4,12 @@ import java.util.ArrayList;
 
 public abstract class Piece {
     int rank;
+    String team;
     protected int[] position = new int[2];
-    public Piece(int row,int col){
+    public Piece(int row,int col,Player player){
         position[0] = row;
         position[1] = col;
+        team = player.toString();
     }
     public void move(int tiles,char direction,Player player1,Player player2){
         int[] nextPos = findNextPosition(this.position,direction,tiles);
@@ -25,7 +27,9 @@ public abstract class Piece {
     }
     public void attack(int[] nextPos,Player player1,Player player2){
         Piece piece2 = findPieceInBoard(nextPos[0],nextPos[1]);
-        if(piece2.rank == 0){
+        if(player1.toString().equals(player2.toString())){
+            System.out.println("You cant attack your own piece!");
+        }else if(piece2.rank == 0){
             Game.board[nextPos[0]][nextPos[1]] = this;
             player2.pieces.remove(piece2);
             player2.pieceCounter[11] -= 1;
@@ -67,10 +71,7 @@ public abstract class Piece {
     public boolean isValidMove(int[] nextPos){
         int rowDif = nextPos[0] - position[0];
         int colDif = nextPos[1] - position[1];
-        if(rowDif == 0 || colDif == 0){
-            return true;
-        }
-        return false;
+        return rowDif == 0 || colDif == 0;
     }
 
 
