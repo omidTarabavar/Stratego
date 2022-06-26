@@ -3,8 +3,8 @@ package Stratego;
 import java.util.ArrayList;
 
 public class Lieutenant extends Piece{
-    public Lieutenant(int row, int col){
-        super(row,col);
+    public Lieutenant(int row, int col,Player player){
+        super(row,col,player);
         rank = 5;
     }
 

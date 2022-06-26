@@ -35,84 +35,84 @@ public class Game {
         else if(board[row][col] == null) {
             switch (chosenPiece) {
                 case 1: {
-                    piece = new Spy(row, col);
+                    piece = new Spy(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 2: {
-                    piece = new Scout(row, col);
+                    piece = new Scout(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 3: {
-                    piece = new Miner(row, col);
+                    piece = new Miner(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 4: {
-                    piece = new Sergeant(row, col);
+                    piece = new Sergeant(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 5: {
-                    piece = new Lieutenant(row, col);
+                    piece = new Lieutenant(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 6: {
-                    piece = new Capitan(row, col);
+                    piece = new Capitan(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 7: {
-                    piece = new Major(row, col);
+                    piece = new Major(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 8: {
-                    piece = new Colonel(row, col);
+                    piece = new Colonel(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 9: {
-                    piece = new General(row, col);
+                    piece = new General(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 10: {
-                    piece = new Marshal(row, col);
+                    piece = new Marshal(row, col,player);
                     ok = piece.addToPieceList(player.pieces, player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 11:{
-                    piece = new Bomb(row,col);
+                    piece = new Bomb(row,col,player);
                     ok = piece.addToPieceList(player.pieces,player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;
                     break;
                 }
                 case 12:{
-                    piece = new Flag(row,col);
+                    piece = new Flag(row,col,player);
                     ok = piece.addToPieceList(player.pieces,player.pieceCounter);
                     if(ok)
                         board[row][col] = piece;

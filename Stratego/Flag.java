@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Flag extends Piece{
 
-    public Flag(int row,int col){
-        super(row,col);
+    public Flag(int row,int col,Player player){
+        super(row,col,player);
         rank = 0; // in baray inke har piece be flag attack dad, betone hazfesh kone
     }
     @Override

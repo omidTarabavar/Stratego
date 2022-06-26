@@ -4,8 +4,8 @@ import java.util.ArrayList;
 
 public class Bomb extends Piece{
 
-    public Bomb(int row, int col){
-        super(row,col);
+    public Bomb(int row, int col,Player player){
+        super(row,col,player);
         rank = 100; // in baray inke joz bomber, baghie age attack konn hazf shan injuri set shode
     }
     @Override
