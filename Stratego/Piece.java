@@ -14,15 +14,17 @@ public abstract class Piece {
     public void move(int tiles,char direction,Player player1,Player player2){
         int[] nextPos= new int[2];
         boolean ok = findNextPosition(this.position,direction,tiles,nextPos);
-        if((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1]==7)){
-            System.out.println("You cant move pieces into Sea");
-        }
-        if(isValidMove(nextPos)) {
-            if (Game.board[nextPos[0]][nextPos[1]] == null) {
-                this.position = nextPos;
-                Game.board[position[0]][position[1]] = this;
-            } else {
-                attack(nextPos, player1, player2);
+        if(ok) {
+            if (((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1] == 7))) {
+                System.out.println("You cant move pieces into Sea");
+            }
+            else if (isValidMove(nextPos)) {
+                if (Game.board[nextPos[0]][nextPos[1]] == null) {
+                    this.position = nextPos;
+                    Game.board[position[0]][position[1]] = this;
+                } else {
+                    attack(nextPos, player1, player2);
+                }
             }
         }
     }
