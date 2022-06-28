@@ -28,7 +28,8 @@ public class Scout extends Piece{
 
     @Override
     public void move(int tiles, char direction,Player player1,Player player2) {
-        int[] nextPos = findNextPosition(this.position, direction, tiles);
+        int[] nextPos = new int[2];
+        boolean ok  = findNextPosition(this.position, direction, tiles,nextPos);
         if (isValidMove(nextPos)) {
             if (Game.board[nextPos[0]][nextPos[1]] == null) {
                 this.position = nextPos;

@@ -1,1 +1,2 @@
-# Stratego
+# Stratego -> OmidTarabavar 
+# Enjoy

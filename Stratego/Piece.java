@@ -12,7 +12,8 @@ public abstract class Piece {
         team = player.toString();
     }
     public void move(int tiles,char direction,Player player1,Player player2){
-        int[] nextPos = findNextPosition(this.position,direction,tiles);
+        int[] nextPos= new int[2];
+        boolean ok = findNextPosition(this.position,direction,tiles,nextPos);
         if((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1]==7)){
             System.out.println("You cant move pieces into Sea");
         }
@@ -43,18 +44,24 @@ public abstract class Piece {
     public static Piece findPieceInBoard(int row,int col){
         return Game.board[row][col];
     }
-    public int[] findNextPosition(int[] position, char dir,int tiles) {
-        int[] nextPos = {position[0],position[1]};
-        if(dir == 'u'){
-            nextPos[0] += tiles;
-        }else if(dir =='d'){
+    public boolean findNextPosition(int[] position, char dir,int tiles,int[] nextPos) {
+        boolean ok = false;
+        nextPos[0] = position[0];
+        nextPos[1] = position[1];
+        if(dir == 'u' && (nextPos[0]-tiles)>= 0){
             nextPos[0] -= tiles;
-        }else if(dir == 'l'){
-            nextPos[1] += tiles;
-        }else if(dir == 'r'){
+            ok = true;
+        }else if(dir =='d' && (nextPos[0]+tiles) <= 9){
+            nextPos[0] += tiles;
+            ok = true;
+        }else if(dir == 'l' && (nextPos[1] + tiles) >= 0){
             nextPos[1] -= tiles;
+            ok = true;
+        }else if(dir == 'r' && (nextPos[1] + tiles) <= 9){
+            nextPos[1] += tiles;
+            ok = true;
         }
-        return nextPos;
+        return ok;
     }
     public void normalAttack(Piece piece1,Piece piece2,Player player1,Player player2,int[] nextPos){
         if(this.rank > piece2.rank){
@@ -73,6 +80,8 @@ public abstract class Piece {
         int colDif = nextPos[1] - position[1];
         return rowDif == 0 || colDif == 0;
     }
+
+
 
 
 }

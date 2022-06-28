@@ -26,8 +26,8 @@ public class Game {
         int chosenPiece = keyboard.nextInt();
         System.out.print("Choose a place(e.g -> 2,3): ");
         String chosenPlace = keyboard.next();
-        int row = chosenPlace.charAt(0)-48;
-        int col = chosenPlace.charAt(2)-48;
+        int row = Game.board.length-(chosenPlace.charAt(0)-48-1);
+        int col = chosenPlace.charAt(2)-48-1;
         if(row == 4 || row == 5){
             System.out.println("You cannot place your piece here!");
             return false;
@@ -169,5 +169,7 @@ public class Game {
             }
         }
     }
+
+//    public void showBoard
 
 }
