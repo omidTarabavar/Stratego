@@ -169,6 +169,14 @@ public class Game {
             }
         }
     }
+    public boolean isContinueAble(Player player){
+        for(int i = 0 ; i< 10 ; i++ ){
+            if(player.pieceCounter[i] > 0){
+                return true;
+            }
+        }
+        return false;
+    }
 
 //    public void showBoard
 
