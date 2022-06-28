@@ -33,8 +33,7 @@ public class Scout extends Piece{
         if(ok) {
             if (((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1] == 7))) {
                 System.out.println("You cant move pieces into Sea");
-            }
-            else if (isValidMove(nextPos)) {
+            } else if (isValidMove(player1, nextPos)) {
                 if (Game.board[nextPos[0]][nextPos[1]] == null) {
                     this.position = nextPos;
                 } else if (tiles == 1) {
@@ -42,30 +41,41 @@ public class Scout extends Piece{
                 } else {
                     System.out.println("Your scout cant move and attack at the same time!");
                 }
-            } else
-                System.out.println("You cant go there");
+            }
         }
     }
     @Override
-    public boolean isValidMove(int[] nextPos){
+    public boolean isValidMove(Player player,int[] nextPos){
         int rowDif = nextPos[0] - position[0];
         int colDif = nextPos[1] - position[1];
+        boolean firstCheck = true;
+        boolean secondCheck;
         if(rowDif == 0){
             for(int i = position[1]; i < nextPos[1];i++){
                 if(Game.board[position[0]][i] != null){
-                    return false;
+                    firstCheck = false;
+                    break;
                 }
             }
         }else if(colDif == 0){
             for(int i = position[0]; i < nextPos[0]; i++){
                 if(Game.board[i][position[1]] != null){
-                    return false;
+                    firstCheck = false;
+                    break;
                 }
             }
         }else {
+            System.out.println("Enter a valid move!");
             return false;
         }
-        return true;
+        if(!firstCheck){
+            System.out.println("You cant reach there!");
+        }
+        secondCheck = checkMoves(player.moves);
+        if(!secondCheck){
+            System.out.println("You cant do a move 3 times in a row!");
+        }
+        return firstCheck && secondCheck;
     }
 
 

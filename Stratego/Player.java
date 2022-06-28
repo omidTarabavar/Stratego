@@ -7,6 +7,7 @@ public class Player {
     int playerNumber;
     // index = power piece-1 --> marshal = 9 - spy = 0 -- bomb = 10 , flag = 11;
     int[] pieceCounter = new int[12];
+    String[][] moves = new String[3][2];
     public Player(){
         for(int i = 0 ;i< Game.players.length;i++){
             if(Game.players[i] == null){

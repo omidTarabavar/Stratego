@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="fix errors on new Piece constructor">
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="fix move in scout">
+      <change afterPath="$PROJECT_DIR$/Stratego/StrategoGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/StrategoGUIWithJpanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Temp.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Temp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +14,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="JavaFXApplication" />
         <option value="Class" />
       </list>
     </option>
@@ -44,9 +44,22 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.StrategoGUIWithJpanel">
+    <configuration name="StrategoGUIWithJpanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Stratego.StrategoGUIWithJpanel" />
+      <module name="Stratego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Stratego.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Temp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Stratego.Temp" />
       <module name="Stratego" />
@@ -62,6 +75,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.StrategoGUIWithJpanel" />
         <item itemvalue="Application.Temp" />
       </list>
     </recent_temporary>
@@ -166,7 +180,21 @@
       <option name="project" value="LOCAL" />
       <updated>1656228147504</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="new update">
+      <created>1656401329030</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1656401329030</updated>
+    </task>
+    <task id="LOCAL-00015" summary="fix move in scout">
+      <created>1656407463119</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1656407463119</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,6 +220,8 @@
     <MESSAGE value="fix scout jump problem&#10;added isValidMove to check the move is valid" />
     <MESSAGE value="fix players attacking their own piece" />
     <MESSAGE value="fix errors on new Piece constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix errors on new Piece constructor" />
+    <MESSAGE value="new update" />
+    <MESSAGE value="fix move in scout" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix move in scout" />
   </component>
 </project>

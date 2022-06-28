@@ -18,7 +18,7 @@ public abstract class Piece {
             if (((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1] == 7))) {
                 System.out.println("You cant move pieces into Sea");
             }
-            else if (isValidMove(nextPos)) {
+            else if (isValidMove(player1,nextPos)) {
                 if (Game.board[nextPos[0]][nextPos[1]] == null) {
                     this.position = nextPos;
                     Game.board[position[0]][position[1]] = this;
@@ -77,10 +77,28 @@ public abstract class Piece {
             Game.board[this.position[0]][this.position[1]] = null;
         }
     }
-    public boolean isValidMove(int[] nextPos){
+    public boolean isValidMove(Player player,int[] nextPos){
         int rowDif = nextPos[0] - position[0];
         int colDif = nextPos[1] - position[1];
-        return rowDif == 0 || colDif == 0;
+        boolean firstCheck = rowDif ==0 || colDif == 0;
+        if(!firstCheck){
+            System.out.println("Enter a valid move!");
+        }
+        boolean secondCheck = checkMoves(player.moves);
+        if(!secondCheck){
+            System.out.println("You cant do a move 3 times in a row!");
+        }
+        return firstCheck && secondCheck;
+    }
+    public boolean checkMoves(String[][] moves){
+        for(int i =0 ;i<moves.length-1;i++){
+            if(!moves[i][0].equals(moves[i+1][0])){
+                return true;
+            }else if(!moves[i][1].equals(moves[i+1][1])){
+                return true;
+            }
+        }
+        return false;
     }
 
 
