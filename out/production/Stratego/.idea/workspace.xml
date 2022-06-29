@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="fix move in scout">
-      <change afterPath="$PROJECT_DIR$/Stratego/StrategoGUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stratego/StrategoGUIWithJpanel.java" afterDir="false" />
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="updated game.java -&gt; is coninueable&#10;and working on gui">
+      <change afterPath="$PROJECT_DIR$/Stratego/SGUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/StrategoSceneBuilder.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/StrategoGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/StrategoGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Temp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Temp.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
@@ -44,9 +52,36 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
-  <component name="RunManager" selected="Application.StrategoGUIWithJpanel">
+  <component name="RunManager" selected="Application.SGUI">
+    <configuration name="SGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Stratego.SGUI" />
+      <module name="Stratego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Stratego.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StrategoGUI" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Stratego.StrategoGUI" />
+      <module name="Stratego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Stratego.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="StrategoGUIWithJpanel" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Stratego.StrategoGUIWithJpanel" />
       <module name="Stratego" />
@@ -75,8 +110,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StrategoGUIWithJpanel" />
+        <item itemvalue="Application.SGUI" />
+        <item itemvalue="Application.StrategoGUI" />
         <item itemvalue="Application.Temp" />
+        <item itemvalue="Application.StrategoGUIWithJpanel" />
       </list>
     </recent_temporary>
   </component>
@@ -194,7 +231,28 @@
       <option name="project" value="LOCAL" />
       <updated>1656407463119</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="add images">
+      <created>1656411282966</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1656411282966</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Now:&#10;dont allow to use a move more then 2 times in a row">
+      <created>1656419365959</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1656419365959</updated>
+    </task>
+    <task id="LOCAL-00018" summary="updated game.java -&gt; is coninueable&#10;and working on gui">
+      <created>1656432961550</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1656432961550</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -222,6 +280,14 @@
     <MESSAGE value="fix errors on new Piece constructor" />
     <MESSAGE value="new update" />
     <MESSAGE value="fix move in scout" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix move in scout" />
+    <MESSAGE value="add images" />
+    <MESSAGE value="Now:&#10;dont allow to use a move more then" />
+    <MESSAGE value="Now:&#10;dont allow to use a move more then 2 times in a row" />
+    <MESSAGE value="updated game.java -&gt; is coninueable&#10;and working on gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated game.java -&gt; is coninueable&#10;and working on gui" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

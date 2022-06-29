@@ -3,11 +3,11 @@ package Stratego;
 import java.util.ArrayList;
 
 public class Lieutenant extends Piece{
+
     public Lieutenant(int row, int col,Player player){
         super(row,col,player);
         rank = 5;
     }
-
     @Override
     public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
         if(pieceCounter[4] <4){

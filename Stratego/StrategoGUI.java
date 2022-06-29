@@ -32,18 +32,19 @@ public class StrategoGUI extends Application {
     @Override
     public void start(Stage primaryStage) throws FileNotFoundException{
         File file = new File("D:\\Transfer from laptop\\GitHub\\Stratego\\Stratego\\Pieces\\bomb.png");
-        Image img = new Image(getClass().getResourceAsStream("Pieces\\bomb.png"),80,80,false,false);
+        Image Bomb = new Image(getClass().getResourceAsStream("Pieces\\bomb.png"),80,80,false,false);
 
-        ImageView view = new ImageView(img);
+        ImageView view = new ImageView(Bomb);
         view.setPreserveRatio(true);
         view.setFitWidth(20);
         view.setFitHeight(20);
         ImageView[][] imageViews = new ImageView[10][10];
         for(int i = 0 ;i < 10;i++) {
             for (int j = 0; j < 10; j++) {
-                imageViews[i][j] = new ImageView(img);
+                imageViews[i][j] = new ImageView(Bomb);
             }
         }
+        String a = "s";
 
         VBox root1 = new VBox();
         Button[] buttons = new Button[2];
@@ -57,16 +58,10 @@ public class StrategoGUI extends Application {
             for(int j = 0 ; j< 10; j++){
                 buttons1[i][j].setMaxSize(80,80);
                 buttons1[i][j].setMinSize(80,80);
-                buttons1[i][j].setOnAction(event -> {
-//                    indexs[]
-//                    if(counter(indexs)==2){
-//                        Button temp = buttons[0];
-//                        buttons[0] = buttons[1];
-//                        buttons[1] = temp;
-//                    }
-
+                buttons1[i][j].setOnMouseClicked(event -> {
 
                 });
+
                 if(i != 4 && i != 5) {
                     buttons1[i][j].setGraphic(imageViews[i][j]);
                 }else if (j ==2 || j == 3 || j==6 || j ==7){
