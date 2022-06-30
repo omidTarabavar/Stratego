@@ -1,28 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added gui - incomplete">
-      <change afterPath="$PROJECT_DIR$/GUI/GUI/src/main/java/com/mycompany/gui/StrategoGUI.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GUI/GUI/src/main/java/com/mycompany/gui/StrategoGUI.java" afterDir="false" />
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added some features to GUI">
+      <change afterPath="$PROJECT_DIR$/Stratego/Computer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Stratego/Players.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Capitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Capitan.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Colonel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Colonel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/General.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/General.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Lieutenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Lieutenant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Major.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Major.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Marshal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Miner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Person.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/SGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/SGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/StrategoGUI.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Sergeant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Sergeant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Spy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Spy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Bomb.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Flag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Flag.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/StrategoGame.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/mycompany/gui/GUI.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/mycompany/gui/StrategoGUI$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/mycompany/gui/StrategoGUI$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Spy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Spy.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -297,7 +308,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656549976024</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="added some features to GUI">
+      <created>1656572182114</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1656572182114</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -331,7 +349,8 @@
     <MESSAGE value="updated game.java -&gt; is coninueable&#10;and working on gui" />
     <MESSAGE value="work on GUI -&gt; failed" />
     <MESSAGE value="added gui - incomplete" />
-    <option name="LAST_COMMIT_MESSAGE" value="added gui - incomplete" />
+    <MESSAGE value="added some features to GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="added some features to GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -341,9 +360,9 @@
           <option name="timeStamp" value="5" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Stratego/Player.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="16" />
+          <url>file://$PROJECT_DIR$/Stratego/Game.java</url>
+          <line>8</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

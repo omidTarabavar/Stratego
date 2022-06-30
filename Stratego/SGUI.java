@@ -8,17 +8,17 @@ import java.awt.event.*;
 
 public class SGUI {
     static boolean activeMouse = false;
-    static Player currentPlayer;
+    static Players currentPlayer;
     static boolean start = false;
-    static Player player1 = new Player();
-    static Player aI = new Player();
-    static int selectedRow1;
-    static int selectedCol1;
-    static int selectedRow2;
-    static int selectedCol2;
+    static Person person = new Person();
+    static Computer computer = new Computer();
+    static int row1;
+    static int col1;
+    static int row2;
+    static int col2;
     static boolean playerTurn = true;
     public static void main(String[] args) {
-        Game.initialBoard(player1);
+        Game.initialBoard(person,computer);
         JFrame frame = new JFrame("Stratego");
         frame.setBounds(0,0,1200,1200);
 
@@ -82,11 +82,21 @@ public class SGUI {
                 redRadio.setEnabled(false);
                 blueRadtio.setEnabled(false);
                 if(redRadio.isSelected()){
-                    currentPlayer = player1;
+                    currentPlayer = person;
+                    person.color = "Red";
+                    computer.color="Blue";
                     playerTurn = true;
+                    computer.updateColor();
+                    frame.repaint();
+
                 }else {
-                    currentPlayer = aI;
+                    person.color = "Blue";
+                    computer.color="Red";
+                    currentPlayer = computer;
                     playerTurn = false;
+                    computer.updateColor();
+                    frame.repaint();
+
                 }
             }
         });
@@ -99,18 +109,18 @@ public class SGUI {
             @Override
             public void mousePressed(MouseEvent e) {
                 if(playerTurn) {
-                    int col = (e.getX() - 10) / 64;
-                    int row = (e.getY() - 32) / 64;
+                     int col = (e.getX() - 10) / 64;
+                     int row = (e.getY() - 32) / 64;
                     if (!start) {
                         if (row > 5) {
-                            selectedRow1 = row;
-                            selectedCol1 = col;
+                            row1 = row;
+                            col1 = col;
                             System.out.println("col:" + col + " row: " + row);
                         }
                     }
                     if (start) {
-                        selectedRow1 = row;
-                        selectedCol1 = col;
+                        row1 = row;
+                        col1 = col;
                         Piece piece = Piece.findPieceInBoard(row, col);
                         System.out.println(piece);
                         System.out.println("col:" + col + " row: " + row);
@@ -122,26 +132,16 @@ public class SGUI {
             @Override
             public void mouseReleased(MouseEvent e) {
                 if(playerTurn) {
-                    int col = (e.getX() - 10) / 64;
-                    int row = (e.getY() - 32) / 64;
-                    Piece selectedPiece2 = null;
-                    Piece selectedPiece1 = null;
-                    if (!start) {
-                        if (row > 5) {
-                            selectedRow2 = row;
-                            selectedCol2 = col;
-                            selectedPiece2 = Piece.findPieceInBoard(selectedRow2, selectedCol2);
-                            selectedPiece1 = Piece.findPieceInBoard(selectedRow1, selectedCol1);
-                        }
-                        if (selectedPiece1 != null && selectedPiece2 != null) {
-                            replacePieces(selectedPiece1, selectedPiece2);
-                            frame.repaint();
-                        }
+                    col2 = (e.getX() - 10) / 64;
+                    row2 = (e.getY() - 32) / 64;
+                    Piece piece1 = Piece.findPieceInBoard(row1, col1);
+                    Piece piece2 = Piece.findPieceInBoard(row2, col2);
+                    if (!start && (piece1 != null && piece2 != null) &&  (row2 > 5) && (row1 > 5)) {
+                        replacePieces(piece1, piece2);
+                        frame.repaint();
                     }
                     if (start) {
-                        selectedRow2 = row;
-                        selectedCol2 = col;
-                        boolean moved = Game.move(selectedRow1, selectedCol1, selectedRow2, selectedCol2, player1, aI);
+                        boolean moved = piece1.move(currentPlayer,row1, col1, row2, col2);
                         if(moved)
                             playerTurn = false;
                         frame.repaint();
