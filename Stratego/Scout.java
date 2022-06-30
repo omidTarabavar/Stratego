@@ -1,10 +1,13 @@
 package Stratego;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Scout extends Piece{
     public Scout(int row, int col,Player player){
         super(row,col,player);
+        image = new ImageIcon(Piece.class.getResource("\\Pieces\\"+toString()+".png")).getImage();
+        index = 1;
         rank = 2;
     }
 
@@ -27,23 +30,23 @@ public class Scout extends Piece{
     }
 
     @Override
-    public void move(int tiles, char direction,Player player1,Player player2) {
-        int[] nextPos = new int[2];
-        boolean ok  = findNextPosition(this.position, direction, tiles,nextPos);
-        if(ok) {
-            if (((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1] == 7))) {
-                System.out.println("You cant move pieces into Sea");
-            } else if (isValidMove(player1, nextPos)) {
-                if (Game.board[nextPos[0]][nextPos[1]] == null) {
-                    this.position = nextPos;
-                } else if (tiles == 1) {
-                    attack(nextPos, player1, player2);
-                } else {
-                    System.out.println("Your scout cant move and attack at the same time!");
-                }
-            }
+    public void move(int row1,int col1,int row2,int col2) {
+        boolean validMove = validMove(row1,col1,row2,col2);
+        if(validMove){
+            Piece temp = Game.board[row1][col1];
+            Game.board[row1][col1] = Game.board[row2][col2];
+            Game.board[row2][col2] = temp;
+        }else {
+            // textArea
+            return;
         }
     }
+
+    @Override
+    public boolean validMove(int row1, int col1, int row2, int col2) {
+        return (Math.abs(row2-row1)==0 || Math.abs(col2-col1)==0);
+    }
+
     @Override
     public boolean isValidMove(Player player,int[] nextPos){
         int rowDif = nextPos[0] - position[0];

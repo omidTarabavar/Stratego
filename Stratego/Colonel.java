@@ -1,10 +1,13 @@
 package Stratego;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Colonel extends Piece{
     public Colonel(int row, int col,Player player){
         super(row,col,player);
+        image = new ImageIcon(Piece.class.getResource("\\Pieces\\"+toString()+".png")).getImage();
+        index = 7;
         rank = 8;
     }
 

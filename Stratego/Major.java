@@ -1,10 +1,13 @@
 package Stratego;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Major extends Piece{
     public Major(int row, int col,Player player){
         super(row,col,player);
+        image = new ImageIcon(Piece.class.getResource("\\Pieces\\"+toString()+".png")).getImage();
+        index = 6;
         rank = 7;
     }
 

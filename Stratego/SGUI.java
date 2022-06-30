@@ -4,19 +4,21 @@ package Stratego;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
+import java.awt.event.*;
 import java.util.LinkedList;
 
 public class SGUI {
-
-    public static LinkedList<Piece> pieceLinkedList = new LinkedList<>();
+    static boolean activeMouse = false;
+    static boolean start = false;
+    static Player player1 = new Player();
+    static Player aI = new Player();
+    static int selectedRow1;
+    static int selectedCol1;
+    static int selectedRow2;
+    static int selectedCol2;
     public static void main(String[] args) {
-        Image[] images = new Image[12];
-        setImages(images);
-        JFrame frame = new JFrame();
+        Game.initialBoard(player1);
+        JFrame frame = new JFrame("Stratego");
         frame.setBounds(0,0,1200,1200);
 
 //        frame.setUndecorated(true);
@@ -38,23 +40,35 @@ public class SGUI {
                     }
                     color = !color;
                 }
+                for(int i = 0 ; i < Game.board.length;i++){
+                    for(int j = 0 ; j < Game.board[0].length;j++){
+                        Piece piece = Game.board[i][j];
+                        if(piece != null) {
+                            g.drawImage(piece.image, piece.x, piece.y, this);
+                        }
 
-            }
-        };
-        jPanel.setBounds(10,10,640,640);
-        JPanel jP = new JPanel(){
-            @Override
-            public void paint(Graphics g) {
-                int cnt=0;
-                for(int i = 0 ; i< 6;i++){
-                    for(int j = 0 ; j < 2;j++){
-                        g.drawImage(images[cnt],j*64,i*64,this);
-                        cnt += 1;
+
                     }
                 }
             }
         };
-        jP.setBounds(750,10,128,384);
+        frame.setLayout(null);
+        jPanel.setBounds(10,10,640,640);
+        JButton button = new JButton("Start");
+        button.setBounds(850,500,70,25);
+        JLabel label = new JLabel("");
+        label.setBounds(847,530,80,30);
+        frame.add(jPanel);
+        frame.add(button);
+        frame.add(label);
+
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                start = true;
+                label.setText("Game started");
+            }
+        });
         frame.addMouseListener(new MouseListener() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -63,12 +77,48 @@ public class SGUI {
 
             @Override
             public void mousePressed(MouseEvent e) {
+                int col = (e.getX()-10)/64;
+                int row = (e.getY()-32)/64;
+                if(!start){
+                    if(row > 5){
+                        selectedRow1 = row;
+                        selectedCol1 = col;
+                        System.out.println("col:"+col+" row: "+row);
+                    }
+                }if(start){
+                    selectedRow1 = row;
+                    selectedCol1 = col;
+                    Piece piece = Piece.findPieceInBoard(row,col);
+                    System.out.println(piece);
+                    System.out.println("col:"+col+" row: "+row);
+                }
+
 
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-
+                int col = (e.getX()-10)/64;
+                int row = (e.getY()-32)/64;
+                Piece selectedPiece2=null;
+                Piece selectedPiece1=null;
+                if(!start){
+                    if(row > 5){
+                        selectedRow2 = row;
+                        selectedCol2 = col;
+                        selectedPiece2 = Piece.findPieceInBoard(selectedRow2,selectedCol2);
+                        selectedPiece1 = Piece.findPieceInBoard(selectedRow1,selectedCol1);
+                    }
+                    if(selectedPiece1 != null && selectedPiece2 != null){
+                        replacePieces(selectedPiece1,selectedPiece2);
+                        frame.repaint();
+                    }
+                }if(start){
+                    selectedRow2 = row;
+                    selectedCol2 = col;
+                    Game.move(selectedRow1, selectedCol1,selectedRow2,selectedCol2,player1,aI);
+                    frame.repaint();
+                }
             }
 
             @Override
@@ -84,7 +134,12 @@ public class SGUI {
         frame.addMouseMotionListener(new MouseMotionListener() {
             @Override
             public void mouseDragged(MouseEvent e) {
-
+//                if(firstPiece != null){
+//                    activeMouse = true;
+//                    firstPiece.x = (e.getX()-32);
+//                    firstPiece.y = (e.getY()-64);
+//                    frame.repaint();
+//                }
             }
 
             @Override
@@ -92,27 +147,25 @@ public class SGUI {
 
             }
         });
-        frame.add(jP);
-        frame.add(jPanel);
 
-        frame.setDefaultCloseOperation(3);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
+
+
     }
-    public static Piece getPiece(int x , int y){
-        return null;
+    public static void replacePieces(Piece piece1 , Piece piece2){
+        int temp = piece1.x;
+        piece1.x = piece2.x;
+        piece2.x = temp;
+        temp = piece1.y;
+        piece1.y = piece2.y;
+        piece2.y=temp;
+        Piece tempPiece = Game.board[piece1.y/64][piece1.x/64];
+        Game.board[piece1.y/64][piece1.x/64] = Game.board[piece2.y/64][piece2.x/64];
+        Game.board[piece2.y/64][piece2.x/64] = tempPiece;
+
+        activeMouse = false;
+
     }
-    public static void setImages(Image[] images){
-        images[0] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Bomb.png")).getImage();
-        images[1] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Capitan.png")).getImage();
-        images[2] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Colonel.png")).getImage();
-        images[3] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Flag.png")).getImage();
-        images[4] = new ImageIcon(SGUI.class.getResource("\\Pieces\\General.png")).getImage();
-        images[5] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Lieutenant.png")).getImage();
-        images[6] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Major.png")).getImage();
-        images[7] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Marshal.png")).getImage();
-        images[8] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Miner.png")).getImage();
-        images[9] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Scout.png")).getImage();
-        images[10] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Sergeant.png")).getImage();
-        images[11] = new ImageIcon(SGUI.class.getResource("\\Pieces\\Spy.png")).getImage();
-    }
+
 }

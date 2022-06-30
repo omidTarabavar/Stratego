@@ -1,11 +1,14 @@
 package Stratego;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class General extends Piece{
     public General(int row, int col,Player player){
         super(row,col,player);
+        image = new ImageIcon(Piece.class.getResource("\\Pieces\\"+toString()+".png")).getImage();
         rank = 9;
+        index = 8;
     }
 
     @Override

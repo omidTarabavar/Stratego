@@ -1,152 +1,31 @@
 package Stratego;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
     public static Piece[][] board = new Piece[10][10];
     public static Player[] players = new Player[2];
-    public boolean addAPiece(Player player){
-        Piece piece;
-        boolean ok;
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Choose your piece:");
-        System.out.println("\n1-Spy");
-        System.out.println("2-Scout");
-        System.out.println("3-Miners");
-        System.out.println("4-Sergeant");
-        System.out.println("5-Lieutenant");
-        System.out.println("6-Capitan");
-        System.out.println("7-Major");
-        System.out.println("8-Colonel");
-        System.out.println("9-General");
-        System.out.println("10-Marshal");
-        System.out.println("11-Bomb");
-        System.out.println("12-Flag\n");
-        System.out.print("-> ");
-        int chosenPiece = keyboard.nextInt();
-        System.out.print("Choose a place(e.g -> 2,3): ");
-        String chosenPlace = keyboard.next();
-        int row = Game.board.length-(chosenPlace.charAt(0)-48-1);
-        int col = chosenPlace.charAt(2)-48-1;
-        if(row == 4 || row == 5){
-            System.out.println("You cannot place your piece here!");
-            return false;
-        }
-        else if(board[row][col] == null) {
-            switch (chosenPiece) {
-                case 1: {
-                    piece = new Spy(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 2: {
-                    piece = new Scout(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 3: {
-                    piece = new Miner(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 4: {
-                    piece = new Sergeant(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 5: {
-                    piece = new Lieutenant(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 6: {
-                    piece = new Capitan(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 7: {
-                    piece = new Major(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 8: {
-                    piece = new Colonel(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 9: {
-                    piece = new General(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 10: {
-                    piece = new Marshal(row, col,player);
-                    ok = piece.addToPieceList(player.pieces, player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 11:{
-                    piece = new Bomb(row,col,player);
-                    ok = piece.addToPieceList(player.pieces,player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                case 12:{
-                    piece = new Flag(row,col,player);
-                    ok = piece.addToPieceList(player.pieces,player.pieceCounter);
-                    if(ok)
-                        board[row][col] = piece;
-                    break;
-                }
-                default:{
-                    System.out.println("Enter a valid number!");
-                    return false;
-                }
-            }
-        }else {
-            System.out.println("This position is already taken");
-            return false;
-        }
-        return true;
-    }
+    public static Piece[][] pieces = new Piece[12][];
+    static int[] numbers = {1,8,5,4,4,4,3,2,1,1,6,1};
 
-    public void movePiece(Player player1,Player player2){
-        int[] position = new int[2];
-        int tiles=1;
-        Scanner keyboard =new Scanner(System.in);
-        System.out.print("Enter your move(e.g > Major,2,3-u): ");
-        String move = keyboard.next();
-        findPosition(move,position);
-        String pieceName = findPieceName(move);
-        Piece piece= Piece.findPieceInBoard(position[0],position[1]);
-        if(piece != null) {
-            if (pieceName.equals("Scout")) {
-                System.out.print("Number of tiles: ");
-                tiles = keyboard.nextInt();
+
+    public static void move(int row1,int col1,int row2,int col2,Player player1,Player player2){
+        Piece piece1 = Piece.findPieceInBoard(row1,col1);
+        Piece piece2 = Piece.findPieceInBoard(row2,col2);
+        if(piece1 != null){
+            if(piece2 == null){
+                if((row2 == 4 || row2 ==5) && ((col2 == 2 || col2 == 3 || col2 == 6 || col2 == 7))){
+                    // textArea ---> you cant move to the sea
+                }else {
+                    piece1.move(row1,col1,row2,col2);
+                }
+            }else {
+                piece1.move(player1,row1,col1,player2,row2,col2);
+                piece2.updatePieceStatus();
             }
-            piece.move(tiles,move.charAt(move.length()-1),player1,player2);
-        }else {
-            System.out.println("There is no piece at this position");
+            piece1.updatePieceStatus();
+
         }
     }
     public String findPieceName(String move){
@@ -177,7 +56,52 @@ public class Game {
         }
         return false;
     }
-
+    public static void initialBoard(Player player){
+        int type = 0;
+        int amount=0;
+        for(int i = 9 ; i > 5 ; i--){
+            for(int j = 0; j< board.length;j++){
+                if(amount < numbers[type]) {
+                    board[i][j] = getPiece(type, i, j, player);
+                    amount += 1;
+                }else {
+                    amount = 1;
+                    type += 1;
+                    board[i][j] = getPiece(type, i, j, player);
+                }
+            }
+        }
+    }
+    public static Piece getPiece(int type,int row , int col,Player player){
+        switch (type){
+            case 0:{
+                return new Spy(row,col,player);
+            }case 1:{
+                return new Scout(row,col,player);
+            }case 2:{
+                return new Miner(row,col,player);
+            }case 3:{
+                return new Sergeant(row,col,player);
+            }case 4:{
+                return new Lieutenant(row,col,player);
+            }case 5:{
+                return new Capitan(row,col,player);
+            }case 6:{
+                return new Major(row,col,player);
+            }case 7:{
+                return new Colonel(row,col,player);
+            }case 8:{
+                return new General(row,col,player);
+            }case 9:{
+                return new Marshal(row,col,player);
+            }case 10:{
+                return new Bomb(row,col,player);
+            }case 11:{
+                return new Flag(row,col,player);
+            }
+        }
+        return null;
+    }
 //    public void showBoard
 
 }

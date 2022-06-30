@@ -1,12 +1,16 @@
 package Stratego;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Bomb extends Piece{
 
     public Bomb(int row, int col,Player player){
         super(row,col,player);
+        String name = toString();
+        image = new ImageIcon(Piece.class.getResource("\\Pieces\\"+name+".png")).getImage();
         rank = 100; // in baray inke joz bomber, baghie age attack konn hazf shan injuri set shode
+        index = 10;
     }
     @Override
     public boolean addToPieceList(ArrayList<Piece> piecesList, int[] pieceCounter) {
@@ -27,7 +31,12 @@ public class Bomb extends Piece{
     }
 
     @Override
-    public void move(int tiles, char direction,Player player1,Player player2) {
-        System.out.println("You cant move the bombs");
+    public void move(int row1,int col1,int row2,int col2) {
+        // textArea --> you cant move bomb
+    }
+
+    @Override
+    public void move(Player player1, int row1, int col1, Player player2, int row2, int col2) {
+        // textArea --> you cant move bomb
     }
 }

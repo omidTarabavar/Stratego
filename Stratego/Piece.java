@@ -1,45 +1,96 @@
 package Stratego;
 
+import java.awt.*;
 import java.util.ArrayList;
 
 public abstract class Piece {
+    int index;
+    public Image image;
+    int x;
+    int y;
     int rank;
     String team;
     protected int[] position = new int[2];
+    int row;
+    int col;
     public Piece(int row,int col,Player player){
-        position[0] = row;
-        position[1] = col;
+        x = col * 64;
+        y = row * 64;
+        this.row = row;
+        this.col = col;
+        Game.board[row][col] = this;
         team = player.toString();
     }
-    public void move(int tiles,char direction,Player player1,Player player2){
-        int[] nextPos= new int[2];
-        boolean ok = findNextPosition(this.position,direction,tiles,nextPos);
-        if(ok) {
-            if (((nextPos[0] == 4 || nextPos[0] == 5) && (nextPos[1] == 2 || nextPos[1] == 3 || nextPos[1] == 6 || nextPos[1] == 7))) {
-                System.out.println("You cant move pieces into Sea");
-            }
-            else if (isValidMove(player1,nextPos)) {
-                if (Game.board[nextPos[0]][nextPos[1]] == null) {
-                    this.position = nextPos;
-                    Game.board[position[0]][position[1]] = this;
-                } else {
-                    attack(nextPos, player1, player2);
+    public void updatePieceStatus(){
+        for(int i =0 ; i < Game.board.length;i++){
+            for(int j = 0 ; j < Game.board[i].length;j++){
+                if(Game.board[i][j] == this){
+                    this.row = i;
+                    this.col = j;
+                    this.x = j*64;
+                    this.y = i * 64;
                 }
             }
         }
     }
-    public void attack(int[] nextPos,Player player1,Player player2){
-        Piece piece2 = findPieceInBoard(nextPos[0],nextPos[1]);
-        if(player1.toString().equals(player2.toString())){
-            System.out.println("You cant attack your own piece!");
-        }else if(piece2.rank == 0){
-            Game.board[nextPos[0]][nextPos[1]] = this;
-            player2.pieces.remove(piece2);
-            player2.pieceCounter[11] -= 1;
+    public void move(int row1 , int col1 , int row2 , int col2){
+        boolean validMove = validMove(row1,col1,row2,col2);
+        // bayad check she 3 bar yek harkat nare
+        if(validMove){
+            Piece temp = Game.board[row1][col1];
+            Game.board[row1][col1] = Game.board[row2][col2];
+            Game.board[row2][col2] = temp;
+        }else {
+            // textArea
+            return;
         }
-        else {
-            normalAttack(this,piece2,player1,player2,nextPos);
+    }
+    public void move(Player player1,int row1,int col1,Player player2,int row2,int col2){
+        Piece piece1 = findPieceInBoard(row1,col1);
+        Piece piece2 = findPieceInBoard(row2,col2);
+        if(!piece1.team.equals(piece2.team)) {
+            boolean validMove = validMove(row1, col1,row2, col2);
+            if(validMove){
+                piece1.attack(player1,row1,col1,player2,row2,col2);
+            }else {
+                // ----> textArea
+            }
+        }else {
+            // ---> textArea cant attack piece with same team
         }
+    }
+    public boolean validMove(int row1, int col1, int row2, int col2){
+        if(Math.abs(row2-row1) == 0){
+            if(Math.abs(col2-col1) == 1){
+                return true;
+            }else {
+                return false;
+            }
+        }else if(Math.abs(col2-col1)==0){
+            if(Math.abs(row2-row1)==1){
+                return true;
+            }else {
+                return false;
+            }
+        }
+        return false;
+    }
+    public void attack(Player player1,int row1,int col1,Player player2,int row2,int col2){
+        Piece piece1 = findPieceInBoard(row1,col1);
+        Piece piece2 = findPieceInBoard(row2,col2);
+        if(piece1.rank > piece2.rank){
+            Piece temp = Game.board[row1][col1];
+            Game.board[row1][col1] = null;
+            Game.board[row2][col2] = temp;
+        }else if(piece1.rank < piece2.rank){
+            Piece temp = Game.board[row2][col2];
+            Game.board[row2][col2] = null;
+            Game.board[row1][col1] = temp;
+        }else {
+            Game.board[row1][col1] = null;
+            Game.board[row2][col2] = null;
+        }
+
     }
     public abstract boolean addToPieceList(ArrayList<Piece> piecesList,int[] pieceCounter);
 

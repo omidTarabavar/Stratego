@@ -1,11 +1,14 @@
 package Stratego;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class Miner extends Piece{
     public Miner(int row, int col,Player player){
         super(row,col,player);
+        image = new ImageIcon(Piece.class.getResource("\\Pieces\\"+toString()+".png")).getImage();
         rank = 3;
+        index = 2;
     }
 
     @Override
@@ -27,18 +30,20 @@ public class Miner extends Piece{
     }
 
     @Override
-    public void attack(int[] nextPos,Player player1,Player player2) {
-        Piece piece2 = findPieceInBoard(nextPos[0],nextPos[1]);
-        if(piece2.rank == 100){
-            Game.board[nextPos[0]][nextPos[1]] = this;
-            player2.pieces.remove(piece2);
-            player2.pieceCounter[10] -= 1;
-        }else if(piece2.rank == 0){
-            Game.board[nextPos[0]][nextPos[1]] = this;
-            player2.pieces.remove(piece2);
-            player2.pieceCounter[11] -= 1;
+    public void attack(Player player1, int row1, int col1, Player player2, int row2, int col2) {
+        Piece piece1 = findPieceInBoard(row1,col1);
+        Piece piece2 = findPieceInBoard(row2,col2);
+        if(piece2.rank == 100 || piece1.rank > piece2.rank){
+            Piece temp = Game.board[row1][col1];
+            Game.board[row1][col1] = null;
+            Game.board[row2][col2] = temp;
+        }else if(piece2.rank > piece1.rank){
+            Piece temp = Game.board[row2][col2];
+            Game.board[row2][col2] = null;
+            Game.board[row1][col1] = temp;
         }else {
-            normalAttack(this,piece2,player1,player2,nextPos);
+            Game.board[row1][col1] = null;
+            Game.board[row2][col2] = null;
         }
     }
 }
