@@ -5,10 +5,10 @@ package Stratego;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.LinkedList;
 
 public class SGUI {
     static boolean activeMouse = false;
+    static Player currentPlayer;
     static boolean start = false;
     static Player player1 = new Player();
     static Player aI = new Player();
@@ -16,6 +16,7 @@ public class SGUI {
     static int selectedCol1;
     static int selectedRow2;
     static int selectedCol2;
+    static boolean playerTurn = true;
     public static void main(String[] args) {
         Game.initialBoard(player1);
         JFrame frame = new JFrame("Stratego");
@@ -58,15 +59,35 @@ public class SGUI {
         button.setBounds(850,500,70,25);
         JLabel label = new JLabel("");
         label.setBounds(847,530,80,30);
+        JRadioButton redRadio = new JRadioButton("Red");
+        JRadioButton blueRadtio = new JRadioButton("Blue");
+        redRadio.setBounds(850,200,50,30);
+        blueRadtio.setBounds(850,230,50,30);
+        ButtonGroup buttonGroup = new ButtonGroup();
+        buttonGroup.add(redRadio);
+        buttonGroup.add(blueRadtio);
         frame.add(jPanel);
         frame.add(button);
         frame.add(label);
+        frame.add(redRadio);
+        frame.add(blueRadtio);
 
         button.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 start = true;
                 label.setText("Game started");
+                button.setBorder(BorderFactory.createLoweredBevelBorder());
+                button.setEnabled(false);
+                redRadio.setEnabled(false);
+                blueRadtio.setEnabled(false);
+                if(redRadio.isSelected()){
+                    currentPlayer = player1;
+                    playerTurn = true;
+                }else {
+                    currentPlayer = aI;
+                    playerTurn = false;
+                }
             }
         });
         frame.addMouseListener(new MouseListener() {
@@ -77,47 +98,54 @@ public class SGUI {
 
             @Override
             public void mousePressed(MouseEvent e) {
-                int col = (e.getX()-10)/64;
-                int row = (e.getY()-32)/64;
-                if(!start){
-                    if(row > 5){
+                if(playerTurn) {
+                    int col = (e.getX() - 10) / 64;
+                    int row = (e.getY() - 32) / 64;
+                    if (!start) {
+                        if (row > 5) {
+                            selectedRow1 = row;
+                            selectedCol1 = col;
+                            System.out.println("col:" + col + " row: " + row);
+                        }
+                    }
+                    if (start) {
                         selectedRow1 = row;
                         selectedCol1 = col;
-                        System.out.println("col:"+col+" row: "+row);
+                        Piece piece = Piece.findPieceInBoard(row, col);
+                        System.out.println(piece);
+                        System.out.println("col:" + col + " row: " + row);
                     }
-                }if(start){
-                    selectedRow1 = row;
-                    selectedCol1 = col;
-                    Piece piece = Piece.findPieceInBoard(row,col);
-                    System.out.println(piece);
-                    System.out.println("col:"+col+" row: "+row);
+
                 }
-
-
             }
 
             @Override
             public void mouseReleased(MouseEvent e) {
-                int col = (e.getX()-10)/64;
-                int row = (e.getY()-32)/64;
-                Piece selectedPiece2=null;
-                Piece selectedPiece1=null;
-                if(!start){
-                    if(row > 5){
+                if(playerTurn) {
+                    int col = (e.getX() - 10) / 64;
+                    int row = (e.getY() - 32) / 64;
+                    Piece selectedPiece2 = null;
+                    Piece selectedPiece1 = null;
+                    if (!start) {
+                        if (row > 5) {
+                            selectedRow2 = row;
+                            selectedCol2 = col;
+                            selectedPiece2 = Piece.findPieceInBoard(selectedRow2, selectedCol2);
+                            selectedPiece1 = Piece.findPieceInBoard(selectedRow1, selectedCol1);
+                        }
+                        if (selectedPiece1 != null && selectedPiece2 != null) {
+                            replacePieces(selectedPiece1, selectedPiece2);
+                            frame.repaint();
+                        }
+                    }
+                    if (start) {
                         selectedRow2 = row;
                         selectedCol2 = col;
-                        selectedPiece2 = Piece.findPieceInBoard(selectedRow2,selectedCol2);
-                        selectedPiece1 = Piece.findPieceInBoard(selectedRow1,selectedCol1);
-                    }
-                    if(selectedPiece1 != null && selectedPiece2 != null){
-                        replacePieces(selectedPiece1,selectedPiece2);
+                        boolean moved = Game.move(selectedRow1, selectedCol1, selectedRow2, selectedCol2, player1, aI);
+                        if(moved)
+                            playerTurn = false;
                         frame.repaint();
                     }
-                }if(start){
-                    selectedRow2 = row;
-                    selectedCol2 = col;
-                    Game.move(selectedRow1, selectedCol1,selectedRow2,selectedCol2,player1,aI);
-                    frame.repaint();
                 }
             }
 

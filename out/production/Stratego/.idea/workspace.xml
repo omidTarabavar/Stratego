@@ -1,41 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="work on GUI -&gt; failed">
-      <change afterPath="$PROJECT_DIR$/Stratego/StrategoGame.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stratego/Test.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Stratego/Test.java" afterDir="false" />
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added gui - incomplete">
+      <change afterPath="$PROJECT_DIR$/GUI/GUI/src/main/java/com/mycompany/gui/StrategoGUI.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/GUI/GUI/src/main/java/com/mycompany/gui/StrategoGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Capitan.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Capitan.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Colonel.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Colonel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Flag.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Flag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/General.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/General.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Lieutenant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Lieutenant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Major.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Major.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Marshal.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Marshal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Miner.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Miner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/SGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/SGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Scout.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Scout.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Sergeant.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Sergeant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Spy.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Spy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/StrategoGUI.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Bomb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Capitan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Capitan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Colonel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Colonel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Flag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Flag.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/General.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/General.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Lieutenant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Lieutenant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Major.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Major.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Marshal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Marshal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Player.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Sergeant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Sergeant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Spy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Spy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/StrategoGame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/mycompany/gui/GUI.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/mycompany/gui/StrategoGUI$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/mycompany/gui/StrategoGUI$2.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656461337099</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="added gui - incomplete">
+      <created>1656549976024</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1656549976024</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -336,28 +330,20 @@
     <MESSAGE value="Now:&#10;dont allow to use a move more then 2 times in a row" />
     <MESSAGE value="updated game.java -&gt; is coninueable&#10;and working on gui" />
     <MESSAGE value="work on GUI -&gt; failed" />
-    <option name="LAST_COMMIT_MESSAGE" value="work on GUI -&gt; failed" />
+    <MESSAGE value="added gui - incomplete" />
+    <option name="LAST_COMMIT_MESSAGE" value="added gui - incomplete" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/Stratego/SGUI.java</url>
-          <line>141</line>
-          <properties class="Stratego.SGUI" method="replacePieces">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/Stratego/SGUI.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="8" />
+          <url>file://$PROJECT_DIR$/Stratego/Player.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

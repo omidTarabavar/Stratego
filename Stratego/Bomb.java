@@ -31,12 +31,14 @@ public class Bomb extends Piece{
     }
 
     @Override
-    public void move(int row1,int col1,int row2,int col2) {
+    public boolean move(Player player,int row1,int col1,int row2,int col2) {
         // textArea --> you cant move bomb
+        return false;
     }
 
     @Override
-    public void move(Player player1, int row1, int col1, Player player2, int row2, int col2) {
+    public boolean move(Player player1, int row1, int col1, Player player2, int row2, int col2) {
         // textArea --> you cant move bomb
+        return false;
     }
 }

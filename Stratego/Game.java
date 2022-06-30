@@ -1,16 +1,12 @@
 package Stratego;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class Game {
     public static Piece[][] board = new Piece[10][10];
     public static Player[] players = new Player[2];
-    public static Piece[][] pieces = new Piece[12][];
     static int[] numbers = {1,8,5,4,4,4,3,2,1,1,6,1};
 
-
-    public static void move(int row1,int col1,int row2,int col2,Player player1,Player player2){
+    public static boolean move(int row1,int col1,int row2,int col2,Player player1,Player player2){
+        boolean moved = false;
         Piece piece1 = Piece.findPieceInBoard(row1,col1);
         Piece piece2 = Piece.findPieceInBoard(row2,col2);
         if(piece1 != null){
@@ -18,43 +14,15 @@ public class Game {
                 if((row2 == 4 || row2 ==5) && ((col2 == 2 || col2 == 3 || col2 == 6 || col2 == 7))){
                     // textArea ---> you cant move to the sea
                 }else {
-                    piece1.move(row1,col1,row2,col2);
+                    moved = piece1.move(player1,row1,col1,row2,col2);
                 }
             }else {
-                piece1.move(player1,row1,col1,player2,row2,col2);
+                moved = piece1.move(player1,row1,col1,player2,row2,col2);
                 piece2.updatePieceStatus();
             }
             piece1.updatePieceStatus();
-
         }
-    }
-    public String findPieceName(String move){
-        int endingIndex = 0;
-        for(int i = 0 ; i < move.length();i++){
-            if(move.charAt(i) == ','){
-                endingIndex = (i-1);
-                break;
-            }
-        }
-        return move.substring(0,endingIndex+1);
-    }
-
-    public void findPosition(String move,int[] position){
-        for(int i = 0 ; i < move.length();i++){
-            if(move.charAt(i) == ','){
-                position[0] = move.charAt(i+1)-48;
-                position[1] = move.charAt(i+3)-48;
-                break;
-            }
-        }
-    }
-    public boolean isContinueAble(Player player){
-        for(int i = 0 ; i< 10 ; i++ ){
-            if(player.pieceCounter[i] > 0){
-                return true;
-            }
-        }
-        return false;
+        return moved;
     }
     public static void initialBoard(Player player){
         int type = 0;
@@ -102,6 +70,5 @@ public class Game {
         }
         return null;
     }
-//    public void showBoard
 
 }

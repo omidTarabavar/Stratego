@@ -30,7 +30,7 @@ public class Spy extends Piece{
     }
 
     @Override
-    public void attack(Player player1, int row1, int col1, Player player2, int row2, int col2) {
+    public boolean attack(Player player1, int row1, int col1, Player player2, int row2, int col2) {
         Piece piece1 = findPieceInBoard(row1,col1);
         Piece piece2 = findPieceInBoard(row2,col2);
         if(piece2.rank == 10 || piece1.rank > piece2.rank){
@@ -45,5 +45,6 @@ public class Spy extends Piece{
             Game.board[row1][col1] = null;
             Game.board[row2][col2] = null;
         }
+        return true;
     }
 }
