@@ -1,7 +1,6 @@
 package Stratego;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class Miner extends Piece{
     public Miner(int row, int col, Players player){
@@ -25,15 +24,15 @@ public class Miner extends Piece{
         Piece piece1 = findPieceInBoard(row1,col1);
         Piece piece2 = findPieceInBoard(row2,col2);
         if(piece2.rank == 100 || piece1.rank > piece2.rank){
-            Piece temp = Game.board[row1][col1];
-            Game.board[row1][col1] = null;
-            Game.board[row2][col2] = temp;
+            Piece temp = SGUI.board[row1][col1];
+            SGUI.board[row1][col1] = null;
+            SGUI.board[row2][col2] = temp;
             player.addToMoves(row1, col1, row2, col2);
         }else if(piece2.rank > piece1.rank){
-            Game.board[row1][col1] = null;
+            SGUI.board[row1][col1] = null;
         }else {
-            Game.board[row1][col1] = null;
-            Game.board[row2][col2] = null;
+            SGUI.board[row1][col1] = null;
+            SGUI.board[row2][col2] = null;
         }
         return true;
     }

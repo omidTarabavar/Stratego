@@ -1,9 +1,9 @@
 package Stratego;
 
 import java.awt.*;
-import java.util.ArrayList;
 
 public abstract class Piece {
+    static int[] numbers = {1,8,5,4,4,4,3,2,1,1,6,1};
     int index;
     public Image image;
     int x;
@@ -17,14 +17,13 @@ public abstract class Piece {
         y = row * 64;
         this.row = row;
         this.col = col;
-        Game.board[row][col] = this;
+        SGUI.board[row][col] = this;
         team = player.toString();
     }
-
     public void updatePieceStatus(){
-        for(int i =0 ; i < Game.board.length;i++){
-            for(int j = 0 ; j < Game.board[i].length;j++){
-                if(Game.board[i][j] == this){
+        for(int i =0 ; i < SGUI.board.length;i++){
+            for(int j = 0 ; j < SGUI.board[i].length;j++){
+                if(SGUI.board[i][j] == this){
                     this.row = i;
                     this.col = j;
                     this.x = j*64;
@@ -50,9 +49,9 @@ public abstract class Piece {
                 }
                 if (piece2 == null) {
                     if (validMove && jumpChecker &&duplicateCheck) {
-                        Piece temp = Game.board[row1][col1];
-                        Game.board[row1][col1] = Game.board[row2][col2];
-                        Game.board[row2][col2] = temp;
+                        Piece temp = SGUI.board[row1][col1];
+                        SGUI.board[row1][col1] = SGUI.board[row2][col2];
+                        SGUI.board[row2][col2] = temp;
                         player.addToMoves(row1, col1, row2, col2);
                         moved = true;
                     } else {
@@ -98,44 +97,20 @@ public abstract class Piece {
         Piece piece1 = findPieceInBoard(row1,col1);
         Piece piece2 = findPieceInBoard(row2,col2);
         if(piece1.rank > piece2.rank){
-            Piece temp = Game.board[row1][col1];
-            Game.board[row1][col1] = null;
-            Game.board[row2][col2] = temp;
+            Piece temp = SGUI.board[row1][col1];
+            SGUI.board[row1][col1] = null;
+            SGUI.board[row2][col2] = temp;
             player.addToMoves(row1, col1, row2, col2);
         }else if(piece1.rank < piece2.rank){
-            Game.board[row1][col1] = null;
+            SGUI.board[row1][col1] = null;
         }else {
-            Game.board[row1][col1] = null;
-            Game.board[row2][col2] = null;
+            SGUI.board[row1][col1] = null;
+            SGUI.board[row2][col2] = null;
         }
         return true;
     }
 
     public static Piece findPieceInBoard(int row,int col){
-        return Game.board[row][col];
+        return SGUI.board[row][col];
     }
-    public boolean findNextPosition(int[] position, char dir,int tiles,int[] nextPos) {
-        boolean ok = false;
-        nextPos[0] = position[0];
-        nextPos[1] = position[1];
-        if(dir == 'u' && (nextPos[0]-tiles)>= 0){
-            nextPos[0] -= tiles;
-            ok = true;
-        }else if(dir =='d' && (nextPos[0]+tiles) <= 9){
-            nextPos[0] += tiles;
-            ok = true;
-        }else if(dir == 'l' && (nextPos[1] + tiles) >= 0){
-            nextPos[1] -= tiles;
-            ok = true;
-        }else if(dir == 'r' && (nextPos[1] + tiles) <= 9){
-            nextPos[1] += tiles;
-            ok = true;
-        }
-        return ok;
-    }
-
-
-
-
-
 }

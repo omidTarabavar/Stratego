@@ -1,7 +1,6 @@
 package Stratego;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class Capitan extends Piece{
     public Capitan(int row, int col, Players player){

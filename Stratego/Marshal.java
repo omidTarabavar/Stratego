@@ -1,7 +1,6 @@
 package Stratego;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class Marshal extends Piece{
     public Marshal(int row, int col, Players player){
