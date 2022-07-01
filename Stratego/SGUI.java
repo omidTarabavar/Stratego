@@ -5,6 +5,7 @@ package Stratego;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.concurrent.TimeUnit;
 
 public class SGUI {
     static boolean activeMouse = false;
@@ -47,8 +48,22 @@ public class SGUI {
                         if(piece != null) {
                             g.drawImage(piece.image, piece.x, piece.y, this);
                         }
+                    }
+                }
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException ie) {
+                    Thread.currentThread().interrupt();
+                }
+                if(!playerTurn){
+                    boolean computerMoved = computer.computerMove();
+                    if (computerMoved) {
+                        frame.repaint();
+                        playerTurn = true;
+                    }
 
-
+                    else {
+                        System.out.println("person wins");
                     }
                 }
             }
@@ -142,12 +157,13 @@ public class SGUI {
                     }
                     if (start) {
                         boolean moved = piece1.move(currentPlayer,row1, col1, row2, col2);
-                        if(moved)
+                        if(moved) {
+                            frame.repaint();
                             playerTurn = false;
-                        frame.repaint();
+                        }
                     }
                 }
-            }
+        }
 
             @Override
             public void mouseEntered(MouseEvent e) {
@@ -195,5 +211,6 @@ public class SGUI {
         activeMouse = false;
 
     }
+
 
 }

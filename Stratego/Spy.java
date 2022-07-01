@@ -30,9 +30,7 @@ public class Spy extends Piece{
             Game.board[row2][col2] = temp;
             player.addToMoves(row1, col1, row2, col2);
         }else if(piece2.rank > piece1.rank){
-            Piece temp = piece2;
-            Game.board[row2][col2] = null;
-            Game.board[row1][col1] = temp;
+            Game.board[row1][col1] = null;
         }else {
             Game.board[row1][col1] = null;
             Game.board[row2][col2] = null;

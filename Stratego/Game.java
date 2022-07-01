@@ -2,7 +2,6 @@ package Stratego;
 
 public class Game {
     public static Piece[][] board = new Piece[10][10];
-    public static Person[] players = new Person[2];
     static int[] numbers = {1,8,5,4,4,4,3,2,1,1,6,1};
 
     public static void initialBoard(Person person, Computer computer){
