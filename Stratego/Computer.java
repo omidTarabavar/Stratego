@@ -3,7 +3,6 @@ package Stratego;
 import java.util.Random;
 
 public class Computer extends Players{
-    // move - attack
 
     public Computer(){
         color ="Blue";

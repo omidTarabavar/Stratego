@@ -54,47 +54,34 @@ public class Scout extends Piece{
     public boolean attack(Players player,int row1, int col1, int row2, int col2) {
         int rowDif = Math.abs(row2-row1);
         int colDif = Math.abs(col2-col1);
-        if(rowDif == 0){
-            if(colDif >1){
-                // textArea cant move and attack at same time
-                return false;
-            }else{
-                Piece piece1 = findPieceInBoard(row1,col1);
-                Piece piece2 = findPieceInBoard(row2,col2);
-                if(piece1.rank > piece2.rank){
-                    Piece temp = SGUI.board[row1][col1];
-                    SGUI.board[row1][col1] = null;
-                    SGUI.board[row2][col2] = temp;
-                    player.addToMoves(row1, col1, row2, col2);
-                }else if(piece1.rank < piece2.rank){
-                    SGUI.board[row1][col1] = null;
-                }else {
-                    SGUI.board[row1][col1] = null;
-                    SGUI.board[row2][col2] = null;
-                }
+        if(rowDif > 1 || colDif > 1) {
+            if(player.toString().equals("Person")){
+                SGUI.textArea.append("You cant move and attack at the same time\n");
             }
-        }if(colDif == 0){
-            if(rowDif >1){
-                // textArea cant move and attack at same time
-                return false;
-            }else{
-                Piece piece1 = findPieceInBoard(row1,col1);
-                Piece piece2 = findPieceInBoard(row2,col2);
-                if(piece1.rank > piece2.rank){
-                    Piece temp = SGUI.board[row1][col1];
-                    SGUI.board[row1][col1] = null;
-                    SGUI.board[row2][col2] = temp;
-                    player.addToMoves(row1, col1, row2, col2);
-                }else if(piece1.rank < piece2.rank){
-                    Piece temp = SGUI.board[row2][col2];
-                    SGUI.board[row2][col2] = null;
-                    SGUI.board[row1][col1] = temp;
-                }else {
-                    SGUI.board[row1][col1] = null;
-                    SGUI.board[row2][col2] = null;
-                }
+            return false;
+        }
+        else {
+            Piece piece1 = findPieceInBoard(row1,col1);
+            Piece piece2 = findPieceInBoard(row2,col2);
+            if(piece1.rank > piece2.rank){
+                SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
+                        +piece2.toString() +"\n-> "+piece2.toString()+" is removed\n");
+                Piece temp = SGUI.board[row1][col1];
+                SGUI.board[row1][col1] = null;
+                SGUI.board[row2][col2] = temp;
+                player.addToMoves(row1, col1, row2, col2);
+            }else if(piece1.rank < piece2.rank){
+                SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
+                        +piece2.toString() +"\n-> "+piece1.toString()+" is removed\n");
+                SGUI.board[row1][col1] = null;
+            }else {
+                SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
+                        +piece2.toString() +"\n-> both got removed\n");
+                SGUI.board[row1][col1] = null;
+                SGUI.board[row2][col2] = null;
             }
         }
+
         return true;
     }
 }

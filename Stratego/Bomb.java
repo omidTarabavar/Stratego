@@ -21,7 +21,8 @@ public class Bomb extends Piece{
 
     @Override
     public boolean move(Players player,int row1, int col1, int row2, int col2) {
-        // textArea --> you cant move bomb
+        if(player.toString().equals("Person"))
+            SGUI.textArea.append("You cant move the bomb\n");
         return false;
     }
 }

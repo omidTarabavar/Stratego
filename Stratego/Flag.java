@@ -22,7 +22,8 @@ public class Flag extends Piece{
 
     @Override
     public boolean move(Players player,int row1, int col1, int row2, int col2) {
-        // textArea --> you cant move flag
+        if(player.toString().equals("Person"))
+            SGUI.textArea.append("You cant move the flag\n");
         return false;
     }
 }
