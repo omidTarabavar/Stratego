@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added 2 photos">
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added a lot of features -&gt; save board &#10;-&gt; load board&#10;added sutech logo&#10;added github hyperlink ( jlabel )&#10;added a winner decider method ...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Bomb.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Bomb.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Computer.java" afterDir="false" />
@@ -344,7 +344,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656642077993</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="added a lot of features -&gt; save board &#10;-&gt; load board&#10;added sutech logo&#10;added github hyperlink ( jlabel )&#10;added a winner decider method ...">
+      <created>1656753337195</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1656753337195</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -382,7 +389,8 @@
     <MESSAGE value="added computer class &#10;working on Ai (incomplete)&#10;added features to GUI" />
     <MESSAGE value="Computer can now move&#10;fixed some bugs on gui" />
     <MESSAGE value="Cleaned some warnings&#10;- deleted Game.java&#10;and moved its function to another classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned some warnings&#10;- deleted Game.java&#10;and moved its function to another classes" />
+    <MESSAGE value="added a lot of features -&gt; save board &#10;-&gt; load board&#10;added sutech logo&#10;added github hyperlink ( jlabel )&#10;added a winner decider method ..." />
+    <option name="LAST_COMMIT_MESSAGE" value="added a lot of features -&gt; save board &#10;-&gt; load board&#10;added sutech logo&#10;added github hyperlink ( jlabel )&#10;added a winner decider method ..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
