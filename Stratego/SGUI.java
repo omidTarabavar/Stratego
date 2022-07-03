@@ -9,15 +9,13 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.nio.file.*;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class SGUI {
     static Scanner scanner;
+    static boolean finished = false;
     public static Piece[][] board = new Piece[10][10];
     public static Piece[][] tempBoard = new Piece[10][10];
     static boolean activeMouse = false;
@@ -31,7 +29,7 @@ public class SGUI {
     static boolean playerTurn = true;
     public static JTextField textField = new JTextField();
     public static JTextArea textArea = new JTextArea("Hi, Welcome to Stratego!\nBy: Omid Tarabavar\n\nYou can customize your pieces by replacing them\n" +
-            "or load a text file with the following format:\n"+"Capitan,2,3\n..."+"You can also use text.txt in Game package :)\n"+"\nYou can also save the board\n"
+            "or load a text file with the following format:\n"+"Capitan,2,3...\n"+"You can also use text.txt in Game package :)\n"+"\nYou can save the board at any time you want\n"
             +"NOTE: you can't load this text file cause it contains\nwhole board (even computer pieces)\n\n"+"First: Pick a color\n\nSecond: Press start if you are ready\n");
     //       "
     public static void initialBoard(Person person, Computer computer){
@@ -94,270 +92,277 @@ public class SGUI {
         }
         return null;
     }
-
-
     public static void main(String[] args) {
-        initialBoard(person,computer);
-        JFrame frame = new JFrame("Stratego");
-        frame.setBounds(0,0,1200,800);
-
-//        frame.setUndecorated(true);
-        JPanel jPanel = new JPanel(){
-            @Override
-            public void paint(Graphics g) {
-                boolean color = true; // true = white - false = blue
-                for(int row = 0 ; row < 10 ;row++){
-                    for(int col = 0 ;col < 10 ; col++){
-                        if((row ==4 || row == 5)  && (col == 2 || col == 3 || col ==6 || col==7) ){
-                            g.setColor(Color.BLUE);
-                        }else if(color){
-                            g.setColor(Color.getHSBColor(190,37,89));
-                        }else {
-                            g.setColor(Color.getHSBColor(150,227,210));
+        try {
+            initialBoard(person, computer);
+            JFrame frame = new JFrame("Stratego");
+            frame.setBounds(0, 0, 1200, 800);
+            JPanel jPanel = new JPanel() {
+                @Override
+                public void paint(Graphics g) {
+                    boolean color = true; // true = white - false = blue
+                    for (int row = 0; row < 10; row++) {
+                        for (int col = 0; col < 10; col++) {
+                            if ((row == 4 || row == 5) && (col == 2 || col == 3 || col == 6 || col == 7)) {
+                                g.setColor(Color.BLUE);
+                            } else if (color) {
+                                g.setColor(Color.getHSBColor(190, 37, 89));
+                            } else {
+                                g.setColor(Color.getHSBColor(150, 227, 210));
+                            }
+                            g.fillRect(col * 64, row * 64, 64, 64);
+                            color = !color;
                         }
-                        g.fillRect(col*64,row*64,64,64);
                         color = !color;
                     }
-                    color = !color;
-                }
-                for(int i = 0 ; i < board.length;i++){
-                    for(int j = 0 ; j < board[0].length;j++){
-                        Piece piece = board[i][j];
-                        if(piece != null) {
-                            g.drawImage(piece.image, piece.x, piece.y, this);
+                    for (int i = 0; i < board.length; i++) {
+                        for (int j = 0; j < board[0].length; j++) {
+                            Piece piece = board[i][j];
+                            if (piece != null) {
+                                g.drawImage(piece.image, piece.x, piece.y, this);
+                            }
+                        }
+                    }
+                    try {
+                        Thread.sleep(600);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                    }
+                    boolean continuable = canContinue(person) && canContinue(computer);
+                    if (continuable) {
+                        if (!playerTurn) {
+                            boolean computerMoved = computer.computerMove();
+                            if (computerMoved) {
+                                frame.repaint();
+                                playerTurn = true;
+                            }
+                        }
+                    } else if (!finished) {
+                        if (canContinue(person)) {
+                            textArea.append("-----------------------------------------------\nPerson wins!\n");
+                            finished = true;
+                        } else {
+                            textArea.append("-----------------------------------------------\nComputer wins!\n");
+                            finished = true;
                         }
                     }
                 }
-                try {
-                    Thread.sleep(600);
-                } catch (InterruptedException ie) {
-                    Thread.currentThread().interrupt();
+            };
+            frame.setLayout(null);
+            jPanel.setBounds(20, 20, 640, 640);
+            JButton button = new JButton("Start");
+            button.setBounds(950, 517, 70, 25);
+            JRadioButton redRadio = new JRadioButton("Red");
+            JRadioButton blueRadtio = new JRadioButton("Blue");
+            redRadio.setBounds(850, 500, 50, 30);
+            blueRadtio.setBounds(850, 530, 50, 30);
+            ButtonGroup buttonGroup = new ButtonGroup();
+            buttonGroup.add(redRadio);
+            buttonGroup.add(blueRadtio);
+            textArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(textArea, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+            scrollPane.setBounds(725, 100, 400, 300);
+            scrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
+                public void adjustmentValueChanged(AdjustmentEvent e) {
+                    e.getAdjustable().setValue(e.getAdjustable().getMaximum());
+                }
+            });
+            JLabel label = new JLabel("Address: ");
+            label.setBounds(20, 700, 60, 20);
+            textField.setBounds(80, 700, 580, 20);
+            JButton buttonLoad = new JButton("Load");
+            buttonLoad.setBounds(700, 700, 70, 20);
+            JButton buttonCopy = new JButton("Save board");
+            buttonCopy.setBounds(800, 700, 100, 20);
+            JLabel labelColor = new JLabel("Color: ");
+            labelColor.setBounds(800, 510, 50, 30);
+            Icon icon = new ImageIcon(SGUI.class.getResource("sutech.png"));
+            JButton logo = new JButton(icon);
+            logo.setBounds(1070, 650, 100, 100);
+            Label gitHub = new Label("GitHub");
+            gitHub.setBounds(1140, 5, 50, 25);
+            gitHub.setForeground(Color.BLUE.darker());
+            gitHub.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            frame.add(jPanel);
+            frame.add(button);
+            frame.add(redRadio);
+            frame.add(blueRadtio);
+            frame.add(scrollPane);
+            frame.add(label);
+            frame.add(textField);
+            frame.add(buttonLoad);
+            frame.add(buttonCopy);
+            frame.add(labelColor);
+            frame.add(logo);
+            frame.add(gitHub);
+            gitHub.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    try {
+                        Desktop.getDesktop().browse(new URI("https://github.com/omidTarabavar/Stratego.git"));
+                    } catch (IOException | URISyntaxException e1) {
+                    }
                 }
 
-                boolean continuable = canContinue(person) && canContinue(computer);
-                if(continuable) {
-                    if (!playerTurn) {
-                        boolean computerMoved = computer.computerMove();
-                        if (computerMoved) {
-                            frame.repaint();
+                @Override
+                public void mousePressed(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                }
+            });
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (redRadio.isSelected() || blueRadtio.isSelected()) {
+                        start = true;
+                        textArea.append("-----------------------------------------------\nGame Started, Good luck\n");
+                        button.setBorder(BorderFactory.createLoweredBevelBorder());
+                        button.setEnabled(false);
+                        redRadio.setEnabled(false);
+                        blueRadtio.setEnabled(false);
+                        buttonLoad.setEnabled(false);
+                        buttonLoad.setBorder(BorderFactory.createLoweredBevelBorder());
+                        if (redRadio.isSelected()) {
+                            person.color = "Red";
+                            computer.color = "Blue";
                             playerTurn = true;
+                        } else {
+                            person.color = "Blue";
+                            computer.color = "Red";
+                            playerTurn = false;
                         }
-                    }
-                }else {
-                    if(canContinue(person)){
-                        textArea.append("-----------------------------------------------\nPerson wins!\n");
-                    }else {
-                        textArea.append("-----------------------------------------------\nComputer wins!\n");
-                    }
-                }
-            }
-        };
-        frame.setLayout(null);
-        jPanel.setBounds(20,20,640,640);
-        JButton button = new JButton("Start");
-        button.setBounds(950,517,70,25);
-        JRadioButton redRadio = new JRadioButton("Red");
-        JRadioButton blueRadtio = new JRadioButton("Blue");
-        redRadio.setBounds(850,500,50,30);
-        blueRadtio.setBounds(850,530,50,30);
-        ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(redRadio);
-        buttonGroup.add(blueRadtio);
-        textArea.setEditable(false);
-        JScrollPane scrollPane = new JScrollPane(textArea,JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
-        scrollPane.setBounds(725,100,400,300);
-        scrollPane.getVerticalScrollBar().addAdjustmentListener(new AdjustmentListener() {
-            public void adjustmentValueChanged(AdjustmentEvent e) {
-                e.getAdjustable().setValue(e.getAdjustable().getMaximum());
-            }
-        });
-        JLabel label = new JLabel("Address: ");
-        label.setBounds(20,700,60,20);
-        textField.setBounds(80,700,580,20);
-        JButton buttonLoad = new JButton("Load");
-        buttonLoad.setBounds(700,700,70,20);
-        JButton buttonCopy = new JButton("Save board");
-        buttonCopy.setBounds(800,700,100,20);
-        JLabel labelColor = new JLabel("Color: ");
-        labelColor.setBounds(800,510,50,30);
-        Icon icon = new ImageIcon(SGUI.class.getResource("sutech.png"));
-        JButton logo = new JButton(icon);
-        logo.setBounds(1070,650,100,100);
-        Label gitHub = new Label("GitHub");
-        gitHub.setBounds(1140,5,50,25);
-        gitHub.setForeground(Color.BLUE.darker());
-        gitHub.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        frame.add(jPanel);
-        frame.add(button);
-        frame.add(redRadio);
-        frame.add(blueRadtio);
-        frame.add(scrollPane);
-        frame.add(label);
-        frame.add(textField);
-        frame.add(buttonLoad);
-        frame.add(buttonCopy);
-        frame.add(labelColor);
-        frame.add(logo);
-        frame.add(gitHub);
-        gitHub.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                try {
-
-                    Desktop.getDesktop().browse(new URI("https://github.com/omidTarabavar/Stratego.git"));
-
-                } catch (IOException | URISyntaxException e1) {
-                }
-            }
-
-            @Override
-            public void mousePressed(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseReleased(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-
-            }
-        });
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (redRadio.isSelected() || blueRadtio.isSelected()) {
-                    start = true;
-                    textArea.append("-----------------------------------------------\nGame Started, Good luck\n");
-                    button.setBorder(BorderFactory.createLoweredBevelBorder());
-                    button.setEnabled(false);
-                    redRadio.setEnabled(false);
-                    blueRadtio.setEnabled(false);
-                    buttonLoad.setEnabled(false);
-                    buttonLoad.setBorder(BorderFactory.createLoweredBevelBorder());
-                    if (redRadio.isSelected()) {
-                        person.color = "Red";
-                        computer.color = "Blue";
-                        playerTurn = true;
+                        computer.updateColor();
+                        frame.repaint();
                     } else {
-                        person.color = "Blue";
-                        computer.color = "Red";
-                        playerTurn = false;
+                        textArea.append("Please select your color first\n");
                     }
-                    computer.updateColor();
-                    frame.repaint();
-                }else {
-                    textArea.append("Please select your color first\n");
                 }
-            }
-        });
-        buttonLoad.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String address = textField.getText();
-                if(!address.isEmpty()){
-                    loadBoard(address);
-                    frame.repaint();
-                }else {
-                    textArea.append("Address is empty\n");
+            });
+            buttonLoad.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String address = textField.getText();
+                    if (!address.isEmpty()) {
+                        loadBoard(address);
+                        frame.repaint();
+                    } else {
+                        textArea.append("Address is empty\n");
+                    }
                 }
-            }
-        });
-        buttonCopy.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String address = textField.getText()+'\\';
-                if(!address.isEmpty()){
-                    saveBoard(address);
-                    textArea.append("Done\n");
-                }else {
-                    textArea.append("Address is empty\n");
+            });
+            buttonCopy.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    String address = textField.getText();
+                    if (!address.isEmpty()) {
+                        boolean ok = saveBoard(address);
+                        if (ok)
+                            textArea.append("Done\n");
+                    } else {
+                        textArea.append("Address is empty\n");
+                    }
                 }
-            }
-        });
-        frame.addMouseListener(new MouseListener() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-            }
-            @Override
-            public void mousePressed(MouseEvent e) {
-                if(playerTurn) {
-                     int col = (e.getX() - 10) / 64;
-                     int row = (e.getY() - 32) / 64;
-                    if (!start) {
-                        if (row > 5) {
+            });
+            frame.addMouseListener(new MouseListener() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                }
+
+                @Override
+                public void mousePressed(MouseEvent e) {
+                    if (playerTurn) {
+                        int col = (e.getX() - 10) / 64;
+                        int row = (e.getY() - 32) / 64;
+                        if (!start) {
+                            if (row > 5) {
+                                row1 = row;
+                                col1 = col;
+                            }
+                        }
+                        if (start) {
                             row1 = row;
                             col1 = col;
-                            System.out.println("col:" + col + " row: " + row);
-                        }
-                    }
-                    if (start) {
-                        row1 = row;
-                        col1 = col;
-                        Piece piece = Piece.findPieceInBoard(row, col);
-                        System.out.println(piece);
-                        System.out.println("col:" + col + " row: " + row);
-                    }
-                }
-            }
-            @Override
-            public void mouseReleased(MouseEvent e) {
-                if(playerTurn) {
-                    col2 = (e.getX() - 10) / 64;
-                    row2 = (e.getY() - 32) / 64;
-                    Piece piece1 = Piece.findPieceInBoard(row1, col1);
-                    Piece piece2 = Piece.findPieceInBoard(row2, col2);
-                    if (!start && (piece1 != null && piece2 != null) &&  (row2 > 5) && (row1 > 5)) {
-                        replacePieces(piece1, piece2);
-                        frame.repaint();
-                    }
-                    if (start) {
-                        boolean moved = false;
-                        if (piece1 != null) {
-                            if(piece1.team.equals("Person")) {
-                                moved = piece1.move(person, row1, col1, row2, col2);
-                            }else {
-                                SGUI.textArea.append("You cant move computer piece\n");
-                            }
-                            if (moved) {
-                                frame.repaint();
-                                playerTurn = false;
-                            }
+                            Piece piece = Piece.findPieceInBoard(row, col);
                         }
                     }
                 }
+
+                @Override
+                public void mouseReleased(MouseEvent e) {
+                    if (playerTurn) {
+                        col2 = (e.getX() - 10) / 64;
+                        row2 = (e.getY() - 32) / 64;
+                        Piece piece1 = Piece.findPieceInBoard(row1, col1);
+                        Piece piece2 = Piece.findPieceInBoard(row2, col2);
+                        if (!start && (piece1 != null && piece2 != null) && (row2 > 5) && (row1 > 5)) {
+                            replacePieces(piece1, piece2);
+                            frame.repaint();
+                        }
+                        if (start) {
+                            try {
+                                boolean moved = false;
+                                if (piece1 != null) {
+                                    if (piece1.team.equals("Person")) {
+                                        moved = piece1.move(person, row1, col1, row2, col2);
+                                    } else {
+                                        SGUI.textArea.append("You cant move computer pieces\n");
+                                    }
+                                    if (moved) {
+                                        frame.repaint();
+                                        playerTurn = false;
+                                    }
+                                }
+                            } catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException) {
+                                textArea.append("Do a valid move");
+                            }
+
+                        }
+                    }
+                }
+
+                @Override
+                public void mouseEntered(MouseEvent e) {
+                }
+
+                @Override
+                public void mouseExited(MouseEvent e) {
+                }
+            });
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setResizable(false);
+            frame.setVisible(true);
+
+        }catch (Exception exception){
+            textArea.append("\nAn unknown exception got thrown\nI would appreciate it if you let me know about this problem\nso that I can fix it\n" +
+                    "contact me via gitHub(Top right corner)\n");
         }
-
-            @Override
-            public void mouseEntered(MouseEvent e) {
-            }
-
-            @Override
-            public void mouseExited(MouseEvent e) {
-            }
-        });
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
     }
+    // --------------------------------------------------------------------------
     public static void replacePieces(Piece piece1 , Piece piece2){
-        int temp = piece1.x;
-        piece1.x = piece2.x;
-        piece2.x = temp;
-        temp = piece1.y;
-        piece1.y = piece2.y;
-        piece2.y=temp;
-        Piece tempPiece = board[piece1.y/64][piece1.x/64];
-        board[piece1.y/64][piece1.x/64] = board[piece2.y/64][piece2.x/64];
-        board[piece2.y/64][piece2.x/64] = tempPiece;
-
-        activeMouse = false;
+        try {
+            int temp = piece1.x;
+            piece1.x = piece2.x;
+            piece2.x = temp;
+            temp = piece1.y;
+            piece1.y = piece2.y;
+            piece2.y=temp;
+            Piece tempPiece = board[piece1.y/64][piece1.x/64];
+            board[piece1.y/64][piece1.x/64] = board[piece2.y/64][piece2.x/64];
+            board[piece2.y/64][piece2.x/64] = tempPiece;
+            activeMouse = false;
+        }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+            textArea.append("Do a valid replacement\n");
+        }
 
     }
     public static void loadBoard(String address){
@@ -376,13 +381,12 @@ public class SGUI {
         try {
             scanner = new Scanner(Paths.get(address));
         }catch (IOException ioException){
-            textArea.append("Error opening file.");
+            textArea.append("Error opening file\n");
             return false;
         }
         return true;
     }
     private static boolean fillBoard(){
-
         try {
             while (scanner.hasNext()){
                 String input= scanner.next();
@@ -399,9 +403,6 @@ public class SGUI {
                     }
                     pieceName += input.charAt(i);
                 }
-                System.out.println(pieceName);
-                System.out.println(row);
-                System.out.println(col);
                 tempBoard[row][col] = getPieceByName(pieceName,row,col);
             }
         }catch (NoSuchElementException elementException){
@@ -456,11 +457,10 @@ public class SGUI {
         }
         return false;
     }
-    public static void saveBoard(String address){
+    public static boolean saveBoard(String address){
         try {
             final String NEW_LINE = System.lineSeparator();
             File myFile = new File(address+"\\board.txt");
-
             OutputStream outputStream =new FileOutputStream(myFile,true);
             for(int i = 0 ; i < board.length; i++){
                 for(int j = 0 ; j < board[i].length;j++){
@@ -470,11 +470,10 @@ public class SGUI {
                     }
                 }
             }
+            return true;
         }catch (IOException ioException){
             textArea.append("Error opening file\n");
+            return false;
         }
-
     }
-
-
 }

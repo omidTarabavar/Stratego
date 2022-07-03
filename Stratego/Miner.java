@@ -24,13 +24,19 @@ public class Miner extends Piece{
         Piece piece1 = findPieceInBoard(row1,col1);
         Piece piece2 = findPieceInBoard(row2,col2);
         if(piece2.rank == 100 || piece1.rank > piece2.rank){
+            SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
+                    +piece2.toString() +"\n-> "+piece2.toString()+" is removed\n");
             Piece temp = SGUI.board[row1][col1];
             SGUI.board[row1][col1] = null;
             SGUI.board[row2][col2] = temp;
             player.addToMoves(row1, col1, row2, col2);
         }else if(piece2.rank > piece1.rank){
+            SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
+                    +piece2.toString() +"\n-> "+piece1.toString()+" is removed\n");
             SGUI.board[row1][col1] = null;
         }else {
+            SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
+                    +piece2.toString() +"\n-> both got removed\n");
             SGUI.board[row1][col1] = null;
             SGUI.board[row2][col2] = null;
         }

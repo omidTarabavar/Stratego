@@ -34,6 +34,8 @@ public abstract class Piece {
         }
     }
     public boolean move(Players player,int row1, int col1, int row2, int col2){
+
+
         boolean moved = false;
         boolean ok = true;
         Piece piece1 = findPieceInBoard(row1,col1);
@@ -118,6 +120,10 @@ public abstract class Piece {
     }
 
     public static Piece findPieceInBoard(int row,int col){
-        return SGUI.board[row][col];
+        try {
+            return SGUI.board[row][col];
+        }catch (ArrayIndexOutOfBoundsException arrayIndexOutOfBoundsException){
+            return null;
+        }
     }
 }
