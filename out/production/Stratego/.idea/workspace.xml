@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Stratego:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="sutech logo">
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="handles exceptions">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Computer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Instruction.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Instruction.docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stratego/SGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/SGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/AbstractLayout.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/DimensionInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/GridConstraints.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/GridLayoutManager.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/HorizontalInfo.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/LayoutState.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/Spacer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/SupportCode.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/Util.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/com/intellij/uiDesigner/core/VerticalInfo.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +59,10 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Stratego/Pieces" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/s" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.JavaFX" />
   </component>
   <component name="RecentsManager">
@@ -348,7 +351,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656753496906</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="handles exceptions">
+      <created>1656817557022</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1656817557022</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -363,7 +373,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="this is also test" />
     <MESSAGE value="added Flag and Bomb" />
     <MESSAGE value="added moving ( incomplete ) and some functions" />
     <MESSAGE value="updated move function and added attack function ( incomplete (maybe) )&#10;bugs should be fixed&#10;&#10;document need to be read again" />
@@ -388,7 +397,8 @@
     <MESSAGE value="Cleaned some warnings&#10;- deleted Game.java&#10;and moved its function to another classes" />
     <MESSAGE value="added a lot of features -&gt; save board &#10;-&gt; load board&#10;added sutech logo&#10;added github hyperlink ( jlabel )&#10;added a winner decider method ..." />
     <MESSAGE value="sutech logo" />
-    <option name="LAST_COMMIT_MESSAGE" value="sutech logo" />
+    <MESSAGE value="handles exceptions" />
+    <option name="LAST_COMMIT_MESSAGE" value="handles exceptions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
