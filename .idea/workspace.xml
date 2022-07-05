@@ -444,7 +444,7 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/Stratego/SGUI.java</url>
-          <line>158</line>
+          <line>156</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
