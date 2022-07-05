@@ -6,18 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="handles exceptions">
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="added user Instruction.docx">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Computer.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Computer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Instruction.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Instruction.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Stratego/SGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/SGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +50,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/s" />
+    <property name="last_opened_file_path" value="E:/Java Projects" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -358,7 +349,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656817557022</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="added user Instruction.docx">
+      <created>1656859726140</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1656859726141</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -373,7 +371,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added Flag and Bomb" />
     <MESSAGE value="added moving ( incomplete ) and some functions" />
     <MESSAGE value="updated move function and added attack function ( incomplete (maybe) )&#10;bugs should be fixed&#10;&#10;document need to be read again" />
     <MESSAGE value="updated attack ( especially for Spy Miner ) -- need to check the stratego.txt next time&#10;&#10;added normal attack function and other changes..." />
@@ -398,7 +395,8 @@
     <MESSAGE value="added a lot of features -&gt; save board &#10;-&gt; load board&#10;added sutech logo&#10;added github hyperlink ( jlabel )&#10;added a winner decider method ..." />
     <MESSAGE value="sutech logo" />
     <MESSAGE value="handles exceptions" />
-    <option name="LAST_COMMIT_MESSAGE" value="handles exceptions" />
+    <MESSAGE value="added user Instruction.docx" />
+    <option name="LAST_COMMIT_MESSAGE" value="added user Instruction.docx" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -407,11 +405,21 @@
           <properties class="java.lang.NullPointerException" package="java.lang" />
           <option name="timeStamp" value="5" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/Stratego/SGUI.java</url>
+          <line>96</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/SGUI_java$SGUI.ic" NAME="SGUI Coverage Results" MODIFIED="1656858584138" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Stratego.*</FILTER>
+    </SUITE>
   </component>
 </project>

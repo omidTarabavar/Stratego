@@ -1,24 +1,39 @@
 package Stratego;
-
-import javax.swing.*;
-
+/**
+ * class mohreye scout ke az class Piece ers bari mikone
+ */
 public class Scout extends Piece{
+    /**
+     * constructor
+     * @param row -- row piece dar board
+     * @param col -- col piece dar board
+     * @param player -- playeri ke in piece baraye on hast
+     * rank : rank piece mored nazar
+     */
     public Scout(int row, int col, Players player){
         super(row,col,player);
-        if(player.toString().equals("Person")) {
-            image = new ImageIcon(Piece.class.getResource("\\Pieces\\" + toString() + ".png")).getImage();
-        }else {
-            image = new ImageIcon(Piece.class.getResource("\\Pieces\\questionMark" + player.color + ".png")).getImage();
-        }
-        index = 1;
         rank = 2;
     }
-
+    /**
+     * toString class
+     * @return name piece mored nazar -- mesl bomb ya spy ya ...
+     */
     @Override
     public String toString() {
         return "Scout";
     }
 
+    /**
+     * baraye harkat scout bayad check konim ke az mohreii mipare ya na. rowDif = ekhtelaf row ha - colDif = ekhtelaf col ha
+     * ba in 2 int, noe harkat ro moshakhas mikonim ( horizontal ya vertical ).
+     * har kodom ke bod, roye khone haii ke azash rad mishe peymayesh mikonim, agar mohreii bod, yani jump zade,checker false neshon mide ke to
+     * method move azash estefade mikonim
+     * @param row1 -- row piece dar board
+     * @param col1 -- col piece dar board
+     * @param row2 -- row khoneii ke piece mikhad be on bere
+     * @param col2 -- col khoneii ke piece mikhad be on bere
+     * @return -- yek boolean ke moshakhas konad heyn harkat, az roye mohreii rad shode ya na
+     */
     public static boolean jumpChecker(int row1,int col1,int row2,int col2){
         boolean flag = true;
         int rowDif = Math.abs(row2-row1);
@@ -45,43 +60,17 @@ public class Scout extends Piece{
         }
         return flag;
     }
+
+    /**
+     * yek checker digas ke check she ke harkat ghotri nabashad -- ya horizontal ya vertical bashad
+     * @param row1 -- row piece dar board
+     * @param col1 -- col piece dar board
+     * @param row2 -- row khoneii ke piece mikhad be on bere
+     * @param col2 -- col khoneii ke piece mikhad be on bere
+     * @return yek boolean ke moshakhas kone harkat valid hast ya na
+     */
     @Override
     public boolean validMove(int row1, int col1, int row2, int col2) {
         return (Math.abs(row2-row1)==0 || Math.abs(col2-col1)==0);
-    }
-
-    @Override
-    public boolean attack(Players player,int row1, int col1, int row2, int col2) {
-        int rowDif = Math.abs(row2-row1);
-        int colDif = Math.abs(col2-col1);
-        if(rowDif > 1 || colDif > 1) {
-            if(player.toString().equals("Person")){
-                SGUI.textArea.append("You cant move and attack at the same time\n");
-            }
-            return false;
-        }
-        else {
-            Piece piece1 = findPieceInBoard(row1,col1);
-            Piece piece2 = findPieceInBoard(row2,col2);
-            if(piece1.rank > piece2.rank){
-                SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
-                        +piece2.toString() +"\n-> "+piece2.toString()+" is removed\n");
-                Piece temp = SGUI.board[row1][col1];
-                SGUI.board[row1][col1] = null;
-                SGUI.board[row2][col2] = temp;
-                player.addToMoves(row1, col1, row2, col2);
-            }else if(piece1.rank < piece2.rank){
-                SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
-                        +piece2.toString() +"\n-> "+piece1.toString()+" is removed\n");
-                SGUI.board[row1][col1] = null;
-            }else {
-                SGUI.textArea.append(piece1.team+"'s "+piece1.toString()+" attacked "+piece2.team+"'s "
-                        +piece2.toString() +"\n-> both got removed\n");
-                SGUI.board[row1][col1] = null;
-                SGUI.board[row2][col2] = null;
-            }
-        }
-
-        return true;
     }
 }

@@ -1,19 +1,23 @@
 package Stratego;
-
-import javax.swing.*;
-
+/**
+ * class mohreye capitan ke az class Piece ers bari mikone
+ */
 public class Capitan extends Piece{
+    /**
+     * constructor
+     * @param row -- row piece dar board
+     * @param col -- col piece dar board
+     * @param player -- playeri ke in piece baraye on hast
+     * rank : rank piece mored nazar
+     */
     public Capitan(int row, int col, Players player){
         super(row,col,player);
-        if(player.toString().equals("Person")) {
-            image = new ImageIcon(Piece.class.getResource("\\Pieces\\" + toString() + ".png")).getImage();
-        }else {
-            image = new ImageIcon(Piece.class.getResource("\\Pieces\\questionMark" + player.color + ".png")).getImage();
-        }
         rank = 6;
-        index = 5;
     }
-
+    /**
+     * toString class
+     * @return name piece mored nazar -- mesl bomb ya spy ya ...
+     */
     @Override
     public String toString() {
         return "Capitan";

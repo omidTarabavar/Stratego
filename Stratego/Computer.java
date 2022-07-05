@@ -1,17 +1,35 @@
 package Stratego;
 
 import java.util.Random;
-
+/**
+ * class player computer ke az class Players ers bari mikone
+ * in class amal marbot be player computer bazi ro barrasi mikone
+ */
 public class Computer extends Players{
-
+    /**
+     * constructor
+     * color player ro set mikone ( ya red ya blue -- bastegi be radiButton entekhabi player dare )
+     */
     public Computer(){
         color ="Blue";
     }
 
+    /**
+     * name player ro moshakhas mikone - azash to jahaye mokhtalefi estefade khahim kard
+     * @return name player -- Computer to in class
+     */
     @Override
     public String toString() {
         return "Computer";
     }
+
+    /**
+     * vaghti player team khodesho entekhab kard, team moghabel baraye computer mishe ( ya red ya blue )
+     * ba estefade az in method color piece haye computer ro dobare tanzim mikonim ( ba tavajoh be entekhab player toye team )
+     * type dar vaghe indexi hastesh ke bahash arraye number dar class piece ro peymayesh mikonim, dar mored type dar class piece tozih dade mishavad
+     * amount - tedad piece haye mojod az type mored nazare
+     * roye board az row haii be index 0 ta 3 peymayesh mikonim - (0 ta 3 chon dar initial, in row ha baraye computer hastesh)
+     */
     public void updateColor(){
         int type = 0;
         int amount=0;
@@ -28,6 +46,15 @@ public class Computer extends Players{
             }
         }
     }
+
+    /**
+     * in method baraye move automatic computer hastesh --  random baraye entekhab yek row va col random dar board
+     * bad az entekhab, check mikone ke row va coli ke entekhab shode, marbot be pieceii az piece haye computer hastesh ya na
+     * age marbot bod, besorat yekbar horizontal yek bar vertical, say mikonim movesh bedim, peymayesh horizontaly va verticaly ba estefade az row va col
+     * randomie ke entekhab kardim.
+     * dar akhar ham az method cancontinue estefade mikonim ke dar ghesmat khodesh dar moredesh tozih midim.
+     * @return yek boolean ke moshakhas konad harkat anjam shod ya na
+     */
     public boolean computerMove(){
         boolean continuable = true;
         Random random = new Random(System.currentTimeMillis()*123456789);
@@ -46,21 +73,7 @@ public class Computer extends Players{
                     }
                 }
             }
-            continuable = continuable();
-        }
-        return false;
-    }
-    public boolean continuable(){
-        for(int i = 0 ; i < SGUI.board.length;i++){
-            for(int j = 0 ; j < SGUI.board[i].length;j++) {
-                if (SGUI.board[i][j] != null) {
-                    boolean checkPlayer = SGUI.board[i][j].team.equals("Computer");
-                    boolean checkPiece = !(SGUI.board[i][j].toString().equals("Bomb") || SGUI.board[i][j].toString().equals("Flag"));
-                    if (checkPlayer && checkPiece) {
-                        return true;
-                    }
-                }
-            }
+            continuable = SGUI.canContinue(this);
         }
         return false;
     }
