@@ -409,7 +409,6 @@ public class SGUI {
                         // inke 25 ya 48 kam kardim baraye tanzim shodn daghigh roye mohre hastesh
                         int col = (e.getX()-25) / 64;
                         int row = (e.getY() - 48) / 64;
-                        System.out.println(board[row][col].toString());
                         if (!start) {
                             if (row > 5) {
                                 row1 = row;
