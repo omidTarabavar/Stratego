@@ -406,8 +406,10 @@ public class SGUI {
                 @Override
                 public void mousePressed(MouseEvent e) {
                     if (playerTurn) {
-                        int col = (e.getX() - 10) / 64;
-                        int row = (e.getY() - 32) / 64;
+                        // inke 25 ya 48 kam kardim baraye tanzim shodn daghigh roye mohre hastesh
+                        int col = (e.getX()-25) / 64;
+                        int row = (e.getY() - 48) / 64;
+                        System.out.println(board[row][col].toString());
                         if (!start) {
                             if (row > 5) {
                                 row1 = row;
@@ -430,8 +432,9 @@ public class SGUI {
                 @Override
                 public void mouseReleased(MouseEvent e) {
                     if (playerTurn) {
-                        col2 = (e.getX() - 10) / 64;
-                        row2 = (e.getY() - 32) / 64;
+                        // inke 25 ya 48 kam kardim baraye tanzim shodn daghigh roye mohre hastesh
+                        col2 = (e.getX() - 25) / 64;
+                        row2 = (e.getY() - 48) / 64;
                         Piece piece1 = Piece.findPieceInBoard(row1, col1);
                         Piece piece2 = Piece.findPieceInBoard(row2, col2);
                         if (!start && (piece1 != null && piece2 != null) && (row2 > 5) && (row1 > 5)) {
