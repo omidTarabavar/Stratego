@@ -6,33 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="cleaned javaDoc">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/Instruction.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/Instruction.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stratego/SGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Stratego/SGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Bomb.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Bomb.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Capitan.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Capitan.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Colonel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Colonel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Flag.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Flag.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/General.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/General.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Instruction.docx" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Instruction.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Lieutenant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Lieutenant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Major.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Major.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Marshal.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Marshal.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Miner.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Piece.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI$4.class" afterDir="false" />
+    <list default="true" id="9f56261a-e885-4157-a53e-68c55d6a70a6" name="Changes" comment="improve movement of pieces">
       <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/SGUI.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Scout.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Sergeant.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Sergeant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Spy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Stratego/Stratego/Spy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Stratego/Stratego/Temp.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -394,7 +369,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657001184377</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="improve movement of pieces">
+      <created>1657090298834</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1657090298834</updated>
+    </task>
+    <task id="LOCAL-00034" summary="improve movement of pieces">
+      <created>1657090387580</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1657090387580</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -409,7 +398,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated attack ( especially for Spy Miner ) -- need to check the stratego.txt next time&#10;&#10;added normal attack function and other changes..." />
     <MESSAGE value="mahdodiat hayii baraye move va place piece in border emal shode. (incomplete)" />
     <MESSAGE value="mahdodiat hayii jadid baraye move va place piece in border emal shode." />
     <MESSAGE value="mahdodiat hayii jadid baraye move va place piece in border emal shode. (updated ver)" />
@@ -434,7 +422,8 @@
     <MESSAGE value="added user Instruction.docx" />
     <MESSAGE value="added javaDoc" />
     <MESSAGE value="cleaned javaDoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="cleaned javaDoc" />
+    <MESSAGE value="improve movement of pieces" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve movement of pieces" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
